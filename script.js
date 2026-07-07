@@ -44,3 +44,16 @@
     });
   });
 })();
+
+// Automatically load the shared footer into the container
+document.addEventListener("DOMContentLoaded", () => {
+  const footerContainer = document.getElementById('site-footer-container');
+  if (footerContainer) {
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        footerContainer.innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  }
+});
