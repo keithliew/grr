@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var WHATSAPP_NUMBER = "[WHATSAPP_NUMBER]"; // <-- REPLACE before launch
+  var WHATSAPP_NUMBER = "60122970362"; // <-- REPLACE before launch
 
   // Which variant is this page? (set via <body data-variant="A|B">)
   var variant = document.body.getAttribute("data-variant") || "A";
@@ -16,31 +16,12 @@
       ? "Hi, I'd like the Lexis Hibiscus 2 rental programme details."
       : "Hi, I'd like more information on Lexis Hibiscus 2 villas.";
 
-  window.dataLayer = window.dataLayer || [];
-  function track(eventName, extra) {
-    var payload = { event: eventName, lp_variant: variant };
-    if (extra) {
-      for (var k in extra) payload[k] = extra[k];
-    }
-    window.dataLayer.push(payload);
-  }
-
   // ---------- WhatsApp links: build href + track clicks ----------
   var waUrl =
     "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(waText);
   document.querySelectorAll("[data-wa]").forEach(function (el) {
     el.setAttribute("href", waUrl);
     el.setAttribute("rel", "noopener");
-    el.addEventListener("click", function () {
-      track("whatsapp_click", { cta_location: el.getAttribute("data-wa") });
-    });
-  });
-
-  // ---------- Programme details CTA tracking ----------
-  document.querySelectorAll("[data-programme-cta]").forEach(function (el) {
-    el.addEventListener("click", function () {
-      track("programme_details_request");
-    });
   });
 
   // ---------- FAQ accordion ----------
@@ -124,10 +105,5 @@
         phoneInput.setCustomValidity("");
       });
     }
-  }
-
-  // ---------- Thank-you page: fire the form conversion ----------
-  if (document.body.hasAttribute("data-thank-you")) {
-    track("lead_form_submit");
   }
 })();

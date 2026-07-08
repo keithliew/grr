@@ -11,14 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="lp.css" />
-
-  <!-- ============ Google Tag Manager — REPLACE [GTM_ID] ============ -->
-  <!--
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','[GTM_ID]');</script>
-  -->
-  <!-- Also configure in GTM: GA4 [GA4_MEASUREMENT_ID], Google Ads [GOOGLE_ADS_CONVERSION_ID].
-       Primary Ads conversion = whatsapp_click. Secondary = lead_form_submit (fires on thank-you.html). -->
-
   <!-- FAQ structured data -->
   <script type="application/ld+json">
   {
@@ -59,7 +51,7 @@
         </ul>
       </div>
       <div>
-        <div class="img-ph">[IMAGE: Lexis Hibiscus 2 aerial render — artist impression]</div>
+        <img class="photo hero-photo" src="images/villas-night.jpg" alt="Overwater villas of Lexis Hibiscus 2 illuminated at night, Port Dickson" fetchpriority="high" />
         <p class="ph-note" style="color:rgba(255,255,255,0.5);">Artist impression. Final development may vary.</p>
       </div>
     </div>
@@ -154,31 +146,31 @@
         </div>
         <div class="villa-grid">
           <article class="villa reveal">
-            <div class="img-ph small">[IMAGE: Water Villa exterior — artist impression]</div>
+            <div class="frame"><img loading="lazy" src="images/showunit-exterior.jpg" alt="Type A overwater villa show unit exterior at dusk, Lexis Hibiscus 2" /></div>
             <div class="body">
-              <h3>Water Villa</h3>
+              <h3>Type A — Upper</h3>
               <ul>
-                <li>Overwater villa with private dip pool</li>
-                <li>[INSERT SIZE] &middot; [INSERT BEDROOM TYPE]</li>
-                <li>Direct resort and sea outlook</li>
+                <li>Overwater villa with private pool</li>
+                <li>872 sq ft &middot; 2 bedrooms &middot; 2 bathrooms &middot; balcony</li>
+                <li>Elevated water outlook</li>
               </ul>
-              <p class="price">From RM [INSERT VERIFIED PRICE]</p>
+              <p class="price">From RM720,000*</p>
             </div>
           </article>
           <article class="villa reveal">
-            <div class="img-ph small">[IMAGE: Sky Pool Villa interior — artist impression]</div>
+            <div class="frame"><img loading="lazy" src="images/showunit-pool.jpg" alt="Private pool and deck of the Type A show unit, Lexis Hibiscus 2" /></div>
             <div class="body">
-              <h3>Sky Pool Villa</h3>
+              <h3>Type A — Lower</h3>
               <ul>
-                <li>Elevated villa with private pool</li>
-                <li>[INSERT SIZE] &middot; [INSERT BEDROOM TYPE]</li>
-                <li>Panoramic coastal views</li>
+                <li>Overwater villa with private pool</li>
+                <li>858 sq ft &middot; 2 bedrooms &middot; 2 bathrooms &middot; balcony</li>
+                <li>Direct water access level</li>
               </ul>
-              <p class="price">From RM [INSERT VERIFIED PRICE]</p>
+              <p class="price">From RM720,000*</p>
             </div>
           </article>
         </div>
-        <p class="scale-line reveal">1,710 units — 910 water homes and 800 sky pool suites &middot; Completion targeted mid-2029 &middot; RM1.6 billion GDV.</p>
+        <p class="scale-line reveal">The resort will comprise 1,734 rooms — including 910 overwater villas (the units offered under the rental programme), 800 tower rooms and 24 aquarium rooms. Completion targeted 2029. *Pricing subject to availability and official price list.</p>
         <p style="margin-top:22px;" class="reveal"><a class="btn btn-navy" data-wa="villas" href="#">Check Unit Availability</a></p>
       </div>
     </section>
@@ -254,7 +246,7 @@
 
           <!-- Web3Forms — REPLACE [WEB3FORM_ACCESS_KEY]; redirect must point at your live thank-you URL -->
           <form class="lead-form reveal" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="[WEB3FORM_ACCESS_KEY]" />
+            <input type="hidden" name="access_key" value="b3c8d2b7-e445-4355-acc5-186e6f77cc3e" />
             <input type="hidden" name="subject" value="LH2 Enquiry — Rental Programme page" />
             <input type="hidden" name="lp_variant" value="A" />
             <input type="hidden" name="redirect" value="https://grrmalaysia.com/lp/thank-you.html" />
