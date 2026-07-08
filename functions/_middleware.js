@@ -1,5 +1,5 @@
 // GTM Tracking ID config
-const GTM_ID = 'GTM-PCWVBT2G'; // Replace with your actual GTM Container ID
+const GTM_ID = 'GTM-MQBXGWD3'; // Replace with your actual GTM Container ID
 
 class GTMHeadInjector {
   element(element) {
