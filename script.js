@@ -45,6 +45,74 @@
   });
 })();
 
+// Lightbox for real property photo galleries (.gallery img)
+(function(){
+  var galleries = document.querySelectorAll('.gallery');
+  if(!galleries.length) return;
+
+  var lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML =
+    '<button class="lightbox-close" aria-label="Close">&times;</button>' +
+    '<button class="lightbox-prev" aria-label="Previous image">&lsaquo;</button>' +
+    '<img class="lightbox-img" alt="">' +
+    '<p class="lightbox-caption"></p>' +
+    '<button class="lightbox-next" aria-label="Next image">&rsaquo;</button>';
+  document.body.appendChild(lb);
+
+  var imgEl = lb.querySelector('.lightbox-img');
+  var capEl = lb.querySelector('.lightbox-caption');
+  var currentItems = [], currentIndex = 0, touchStartX = null;
+
+  galleries.forEach(function(gallery){
+    var imgs = Array.prototype.slice.call(gallery.querySelectorAll('img'));
+    if(!imgs.length) return;
+    var items = imgs.map(function(img){
+      var fig = img.closest('figure');
+      var cap = fig ? fig.querySelector('figcaption') : null;
+      return { src: img.currentSrc || img.src, caption: cap ? cap.textContent.trim() : (img.alt || '') };
+    });
+    imgs.forEach(function(img, i){
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function(){ open(items, i); });
+    });
+  });
+
+  function open(items, i){
+    currentItems = items; currentIndex = i;
+    render();
+    lb.classList.add('open');
+    document.addEventListener('keydown', onKey);
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.removeEventListener('keydown', onKey);
+  }
+  function render(){
+    var item = currentItems[currentIndex];
+    imgEl.src = item.src; imgEl.alt = item.caption; capEl.textContent = item.caption;
+  }
+  function next(){ currentIndex = (currentIndex + 1) % currentItems.length; render(); }
+  function prev(){ currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length; render(); }
+  function onKey(e){
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowRight') next();
+    else if(e.key === 'ArrowLeft') prev();
+  }
+
+  lb.querySelector('.lightbox-close').addEventListener('click', close);
+  lb.querySelector('.lightbox-next').addEventListener('click', next);
+  lb.querySelector('.lightbox-prev').addEventListener('click', prev);
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  lb.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    if(touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
+    touchStartX = null;
+  }, {passive:true});
+})();
+
 // Automatically load the shared footer into the container
 document.addEventListener("DOMContentLoaded", () => {
   const footerContainer = document.getElementById('site-footer-container');

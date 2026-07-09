@@ -21,7 +21,8 @@
     "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(waText);
   document.querySelectorAll("[data-wa]").forEach(function (el) {
     el.setAttribute("href", waUrl);
-    el.setAttribute("rel", "noopener");
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener noreferrer");
   });
 
   // ---------- FAQ accordion ----------
@@ -78,6 +79,72 @@
     reveals.forEach(function (el) {
       el.classList.add("in");
     });
+  }
+
+  // ---------- Lightbox for real property photo galleries (.gallery img) ----------
+  var galleries = document.querySelectorAll(".gallery");
+  if (galleries.length) {
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML =
+      '<button class="lightbox-close" aria-label="Close">&times;</button>' +
+      '<button class="lightbox-prev" aria-label="Previous image">&lsaquo;</button>' +
+      '<img class="lightbox-img" alt="">' +
+      '<p class="lightbox-caption"></p>' +
+      '<button class="lightbox-next" aria-label="Next image">&rsaquo;</button>';
+    document.body.appendChild(lb);
+
+    var imgEl = lb.querySelector(".lightbox-img");
+    var capEl = lb.querySelector(".lightbox-caption");
+    var currentItems = [], currentIndex = 0, touchStartX = null;
+
+    galleries.forEach(function (gallery) {
+      var imgs = Array.prototype.slice.call(gallery.querySelectorAll("img"));
+      if (!imgs.length) return;
+      var items = imgs.map(function (img) {
+        var fig = img.closest("figure");
+        var cap = fig ? fig.querySelector("figcaption") : null;
+        return { src: img.currentSrc || img.src, caption: cap ? cap.textContent.trim() : (img.alt || "") };
+      });
+      imgs.forEach(function (img, i) {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", function () { openLb(items, i); });
+      });
+    });
+
+    var openLb = function (items, i) {
+      currentItems = items; currentIndex = i;
+      renderLb();
+      lb.classList.add("open");
+      document.addEventListener("keydown", onLbKey);
+    };
+    var closeLb = function () {
+      lb.classList.remove("open");
+      document.removeEventListener("keydown", onLbKey);
+    };
+    var renderLb = function () {
+      var item = currentItems[currentIndex];
+      imgEl.src = item.src; imgEl.alt = item.caption; capEl.textContent = item.caption;
+    };
+    var nextLb = function () { currentIndex = (currentIndex + 1) % currentItems.length; renderLb(); };
+    var prevLb = function () { currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length; renderLb(); };
+    var onLbKey = function (e) {
+      if (e.key === "Escape") closeLb();
+      else if (e.key === "ArrowRight") nextLb();
+      else if (e.key === "ArrowLeft") prevLb();
+    };
+
+    lb.querySelector(".lightbox-close").addEventListener("click", closeLb);
+    lb.querySelector(".lightbox-next").addEventListener("click", nextLb);
+    lb.querySelector(".lightbox-prev").addEventListener("click", prevLb);
+    lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+    lb.addEventListener("touchstart", function (e) { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", function (e) {
+      if (touchStartX === null) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) { dx < 0 ? nextLb() : prevLb(); }
+      touchStartX = null;
+    }, { passive: true });
   }
 
   // ---------- Lead form: stash variant + source, light validation ----------

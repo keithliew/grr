@@ -179,6 +179,22 @@ table.compare tbody tr:last-child td{border-bottom:0}
 .footer-legal{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:13px;color:rgba(255,255,255,.55)}
 .footer-legal p{margin-bottom:8px}
 
+/* ---------- Lightbox ---------- */
+.lightbox{position:fixed;inset:0;background:rgba(20,42,59,.94);z-index:200;display:none;align-items:center;justify-content:center;flex-direction:column;padding:24px}
+.lightbox.open{display:flex}
+.lightbox-img{max-width:92vw;max-height:78vh;border-radius:var(--radius);object-fit:contain}
+.lightbox-caption{color:var(--white);font-size:14px;margin-top:14px;text-align:center;max-width:640px}
+.lightbox-close,.lightbox-prev,.lightbox-next{position:absolute;background:rgba(255,255,255,.12);border:0;color:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.lightbox-close:hover,.lightbox-prev:hover,.lightbox-next:hover{background:rgba(255,255,255,.22)}
+.lightbox-close{top:20px;right:20px;width:44px;height:44px;font-size:26px;line-height:1}
+.lightbox-prev,.lightbox-next{top:50%;transform:translateY(-50%);width:48px;height:48px;font-size:28px;line-height:1}
+.lightbox-prev{left:16px}
+.lightbox-next{right:16px}
+@media (max-width:640px){
+  .lightbox-prev,.lightbox-next{width:38px;height:38px;font-size:20px}
+  .lightbox-close{width:38px;height:38px;font-size:22px;top:12px;right:12px}
+}
+
 /* ---------- Motion ---------- */
 .fade-up{opacity:0;transform:translateY(12px);transition:opacity .4s ease-out,transform .4s ease-out}
 .fade-up.in{opacity:1;transform:none}
