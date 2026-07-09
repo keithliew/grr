@@ -122,7 +122,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; padding-left: 0; } }
 
 .hero-copy {
-  padding: 96px 48px 72px 0;
+  padding: 96px 48px 72px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
