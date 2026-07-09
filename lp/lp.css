@@ -91,6 +91,8 @@ section { padding: 72px 0; }
 .btn-navy { background: transparent; color: var(--ink); border: 1.5px solid rgba(27, 39, 51, 0.3); }
 .btn-navy:hover { border-color: var(--ink); }
 .btn-block { display: block; width: 100%; }
+.text-link { color: var(--grey); font-weight: 600; font-size: 0.9rem; text-decoration: none; border-bottom: 1px solid rgba(92, 102, 112, 0.35); padding-bottom: 1px; }
+.text-link:hover { color: var(--coral); border-color: var(--coral); }
 .btn:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
 a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
   outline: 3px solid var(--coral); outline-offset: 2px;
@@ -247,6 +249,9 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   box-shadow: var(--shadow);
   display: flex; flex-direction: column;
 }
+.villa .frame { background: #fff; }
+.villa .frame img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block; }
+.villa .frame figcaption { font-size: 0.78rem; color: var(--grey); text-align: center; padding: 8px 0; }
 .villa .body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
 .villa h3 { margin-bottom: 10px; }
 .villa ul { list-style: none; margin: 12px 0 18px; }
@@ -369,6 +374,11 @@ footer {
   line-height: 1.8;
 }
 footer strong { color: rgba(255, 255, 255, 0.85); }
+footer .footer-top p { margin-bottom: 8px; }
+footer .footer-credentials { font-size: 0.76rem; color: rgba(255, 255, 255, 0.5); }
+footer .footer-legal { border-top: 1px solid rgba(255, 255, 255, 0.12); margin-top: 20px; padding-top: 20px; font-size: 0.76rem; }
+footer .footer-legal p { margin-bottom: 8px; }
+footer .footer-legal p:last-child { margin-bottom: 0; }
 
 /* ---------- Lightbox ---------- */
 .lightbox{position:fixed;inset:0;background:rgba(8,24,38,.94);z-index:200;display:none;align-items:center;justify-content:center;flex-direction:column;padding:24px}

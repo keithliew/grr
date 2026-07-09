@@ -81,8 +81,8 @@
     });
   }
 
-  // ---------- Lightbox for real property photo galleries (.gallery img) ----------
-  var galleries = document.querySelectorAll(".gallery");
+  // ---------- Lightbox for real property photo galleries (.gallery img, .villa-grid img) ----------
+  var galleries = document.querySelectorAll(".gallery, .villa-grid");
   if (galleries.length) {
     var lb = document.createElement("div");
     lb.className = "lightbox";
