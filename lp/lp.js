@@ -81,6 +81,56 @@
     });
   }
 
+  // ---------- Hero photo: manual cover-crop + scroll-driven reveal ----------
+  // Renders the hero <img> at its true natural aspect ratio, scaled up just
+  // enough to cover its frame (replicating object-fit:cover math ourselves),
+  // which gives real pixel overflow to translate as the user scrolls. On a
+  // tall portrait source image this reveals content below the initial crop;
+  // on a landscape image overflowY comes out near zero, so this is a
+  // harmless static cover-fill there — same code path for every page.
+  if (!reduced) {
+    document.querySelectorAll(".hero-photo-frame").forEach(function (frame) {
+      var img = frame.querySelector(".hero-photo");
+      if (!img) return;
+
+      var overflowY = 0, overflowX = 0, ready = false;
+
+      var measure = function () {
+        var fw = frame.clientWidth, fh = frame.clientHeight;
+        var nw = img.naturalWidth, nh = img.naturalHeight;
+        if (!fw || !fh || !nw || !nh) { ready = false; return; }
+        var scale = Math.max(fw / nw, fh / nh);
+        var rw = nw * scale, rh = nh * scale;
+        overflowX = Math.max(0, rw - fw);
+        overflowY = Math.max(0, rh - fh);
+        img.style.width = rw + "px";
+        img.style.height = rh + "px";
+        img.style.left = (-overflowX / 2) + "px";
+        img.style.top = "0px";
+        ready = true;
+      };
+
+      var applyScroll = function () {
+        if (!ready) return;
+        var rect = frame.getBoundingClientRect();
+        var total = rect.height || 1;
+        var progress = Math.max(0, Math.min(1, -rect.top / total));
+        img.style.transform = "translateY(" + (-overflowY * progress).toFixed(1) + "px)";
+      };
+
+      var onResize = function () { measure(); applyScroll(); };
+
+      if (img.complete && img.naturalWidth) {
+        measure();
+      } else {
+        img.addEventListener("load", onResize, { once: true });
+      }
+      applyScroll();
+      window.addEventListener("scroll", applyScroll, { passive: true });
+      window.addEventListener("resize", onResize);
+    });
+  }
+
   // ---------- Lightbox for real property photo galleries (.gallery img, .villa-grid img) ----------
   var galleries = document.querySelectorAll(".gallery, .villa-grid");
   if (galleries.length) {
