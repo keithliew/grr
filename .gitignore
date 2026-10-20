@@ -1,0 +1,5 @@
+# Source material for new listings; never publish
+New GRR Projects/
+._*
+.DS_Store
+INDEX.md
