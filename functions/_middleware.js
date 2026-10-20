@@ -21,8 +21,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 
 export async function onRequest(context) {
-  const response = await context.next();
+  const url = new URL(context.request.url);
+
+  // One address for search engines: www.grrmalaysia.com -> grrmalaysia.com
+  if (url.hostname === "www.grrmalaysia.com") {
+    url.hostname = "grrmalaysia.com";
+    return Response.redirect(url.toString(), 301);
+  }
+
+  let response = await context.next();
   const contentType = response.headers.get("content-type") || "";
+
+  // Keep the pages.dev copy and the footer fragment out of Google
+  if (url.hostname.endsWith(".pages.dev") || url.pathname.startsWith("/footer")) {
+    response = new Response(response.body, response);
+    response.headers.set("X-Robots-Tag", "noindex");
+  }
 
   // Only run this on actual HTML pages
   if (contentType.includes("text/html")) {
