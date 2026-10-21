@@ -68,3 +68,33 @@
   .bar .val{font-size:11px}
   .xlabels{font-size:10.5px}
 }
+
+/* Buyer journey: a fictional owner's story, step by step */
+.persona{display:flex;gap:16px;align-items:center;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;margin:24px 0 8px}
+.persona .avatar{flex:0 0 56px;height:56px;border-radius:50%;background:var(--ivory);display:grid;place-items:center}
+.persona .avatar svg{width:34px;height:34px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.persona p{margin:0;font-size:15.5px}
+.persona strong{display:block;font-size:18px;color:var(--ink)}
+.journey{list-style:none;margin:24px 0 0;padding:0;position:relative}
+.journey::before{content:"";position:absolute;left:25px;top:8px;bottom:8px;width:2px;background:rgba(20,42,59,.15)}
+.journey li{position:relative;display:grid;grid-template-columns:52px 1fr;gap:16px;margin-bottom:22px}
+.journey .ico{position:relative;z-index:1;width:52px;height:52px;border-radius:50%;background:var(--white);border:2px solid var(--ink60);display:grid;place-items:center}
+.journey li.g .ico{border-color:var(--c-guar)}
+.journey li.p .ico{border-color:var(--c-proj)}
+.journey .ico svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.journey .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px}
+.journey .step{font-family:var(--font-mono);font-size:12.5px;color:var(--ink60);text-transform:uppercase;letter-spacing:.05em}
+.journey h3{font-size:19px;margin:4px 0 6px}
+.journey p{font-size:15.5px;margin:0}
+.journey .money{display:inline-block;margin-top:10px;font-size:14px;background:var(--ivory);border-radius:6px;padding:6px 10px;color:var(--ink)}
+.journey li.g .money{background:rgba(226,96,75,.10)}
+.journey li.p .money{background:rgba(28,127,166,.10)}
+.journey-note{font-size:13.5px;color:var(--ink60);margin-top:4px}
+@media (max-width:560px){
+  .journey::before{left:19px}
+  .journey li{grid-template-columns:40px 1fr;gap:12px}
+  .journey .ico{width:40px;height:40px}
+  .journey .ico svg{width:20px;height:20px}
+  .persona{padding:16px;gap:12px}
+  .persona .avatar{flex-basis:44px;height:44px}
+}
