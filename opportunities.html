@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="charts.css?v=1">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What is the guaranteed rental return for Lexis Hibiscus 2?","acceptedAnswer":{"@type":"Answer","text":"The developer guarantees 8% per annum for the first 3 years, paid quarterly, or 6.5% per annum net in advance during construction with outgoings covered by the developer. From Year 4 onward, returns move to a profit-sharing model that is projected but not guaranteed."}},
@@ -140,6 +141,49 @@
   </div>
 </section>
 
+<section class="block bg-paper" id="numbers">
+  <div class="container fade-up">
+    <h2 class="rule">What the Numbers Mean for You</h2>
+    <p>The developer's documents give an average Type A price of RM1,000,000. Here is the programme in ringgit on that example.</p>
+    <div class="tiles"><div class="tile guar"><b>RM20,000</b><span>paid to you every quarter in years 1&ndash;3 (8% a year, guaranteed)</span></div><div class="tile guar"><b>RM240,000</b><span>total over the 3 guaranteed years, before running costs (24%)</span></div><div class="tile guar"><b>About RM9,000</b><span>running costs a year for a Type A villa (maintenance, sinking fund, taxes, insurance)</span></div><div class="tile proj"><b>10+ years</b><span>the developer's own forecast for rent to repay the price, if its projections are met</span></div></div>
+    <figure class="chart">
+      <figcaption><div class="chart-title">Guaranteed now, projected later</div><div class="chart-sub">Return per year on the purchase price, gross and after running costs</div></figcaption>
+      <div class="legend"><span><i class="g"></i>Guaranteed (years 1&ndash;3)</span><span><i class="p"></i>Projected by the developer (15-year average)</span></div>
+      <div class="bars wide-gap" role="img" aria-label="Guaranteed now, projected later"><div class="grid" style="bottom:0.00%"><span>0%</span></div><div class="grid" style="bottom:25.00%"><span>3%</span></div><div class="grid" style="bottom:50.00%"><span>6%</span></div><div class="grid" style="bottom:75.00%"><span>9%</span></div><div class="grid" style="bottom:100.00%"><span>12%</span></div><div class="bar g" style="--v:8;--max:12" tabindex="0" data-tip="Years 1–3, gross: 8% a year, guaranteed" aria-label="Years 1–3, gross: 8% a year, guaranteed"><span class="val">8%</span></div><div class="bar g" style="--v:7.1;--max:12" tabindex="0" data-tip="Years 1–3, net of running costs: 7.1% a year, guaranteed" aria-label="Years 1–3, net of running costs: 7.1% a year, guaranteed"><span class="val">7.1%</span></div><div class="bar p" style="--v:11.5;--max:12" tabindex="0" data-tip="15-year average, gross: 11.5% a year, projected" aria-label="15-year average, gross: 11.5% a year, projected"><span class="val">11.5%</span></div><div class="bar p" style="--v:10.2;--max:12" tabindex="0" data-tip="15-year average, net: 10.2% a year, projected" aria-label="15-year average, net: 10.2% a year, projected"><span class="val">10.2%</span></div></div>
+      <div class="xlabels wide-gap"><span>Yrs 1–3 gross</span><span>Yrs 1–3 net</span><span>15-yr avg gross</span><span>15-yr avg net</span></div>
+      <details><summary>Show the numbers as a table</summary><table><thead><tr><th>Period</th><th>Return</th></tr></thead><tbody><tr><td>Years 1–3, gross</td><td>8% a year, guaranteed</td></tr><tr><td>Years 1–3, net of running costs</td><td>7.1% a year, guaranteed</td></tr><tr><td>15-year average, gross</td><td>11.5% a year, projected</td></tr><tr><td>15-year average, net</td><td>10.2% a year, projected</td></tr></tbody></table></details>
+      <p class="chart-note">Developer's official sales documentation. Only years 1&ndash;3 are guaranteed. The 15-year average is the developer's projection and includes the guaranteed years.</p>
+    </figure>
+    <figure class="chart">
+      <figcaption><div class="chart-title">Is the projection realistic? Compare occupancy</div><div class="chart-sub">Average share of rooms occupied</div></figcaption>
+      <div class="legend"><span><i class="n"></i>Actual result next door</span><span><i class="p"></i>Developer's assumption for Lexis Hibiscus 2</span></div>
+      <div class="bars wide-gap" role="img" aria-label="Is the projection realistic? Compare occupancy"><div class="grid" style="bottom:0.00%"><span>0%</span></div><div class="grid" style="bottom:25.00%"><span>20%</span></div><div class="grid" style="bottom:50.00%"><span>40%</span></div><div class="grid" style="bottom:75.00%"><span>60%</span></div><div class="grid" style="bottom:100.00%"><span>80%</span></div><div class="bar n" style="--v:53.28;--max:80" tabindex="0" data-tip="Lexis Hibiscus (opened 2017), actual 2024 average occupancy: 53.28%" aria-label="Lexis Hibiscus (opened 2017), actual 2024 average occupancy: 53.28%"><span class="val">53.3%</span></div><div class="bar p" style="--v:60;--max:80" tabindex="0" data-tip="Lexis Hibiscus 2 projection, starting occupancy: 60%" aria-label="Lexis Hibiscus 2 projection, starting occupancy: 60%"><span class="val">60%</span></div><div class="bar p" style="--v:67;--max:80" tabindex="0" data-tip="Lexis Hibiscus 2 projection, later occupancy: 67%" aria-label="Lexis Hibiscus 2 projection, later occupancy: 67%"><span class="val">67%</span></div></div>
+      <div class="xlabels wide-gap"><span>Sister resort 2024</span><span>LH2 early years</span><span>LH2 later years</span></div>
+      <details><summary>Show the numbers as a table</summary><table><thead><tr><th>Measure</th><th>Occupancy</th></tr></thead><tbody><tr><td>Lexis Hibiscus (opened 2017), actual 2024 average occupancy</td><td>53.28%</td></tr><tr><td>Lexis Hibiscus 2 projection, starting occupancy</td><td>60%</td></tr><tr><td>Lexis Hibiscus 2 projection, later occupancy</td><td>67%</td></tr></tbody></table></details>
+      <p class="chart-note">The projection assumes occupancy of 60% rising to 67%. The sister resort next door averaged 53.28% in 2024, with an average return of 6.35%. A new resort can do better or worse; this is the gap the projection has to close.</p>
+    </figure>
+    <figure class="chart">
+      <figcaption><div class="chart-title">What you pay before any rent arrives</div><div class="chart-sub">Share of the price paid by each forecast stage (developer's schedule)</div></figcaption>
+      
+      <div class="bars" role="img" aria-label="What you pay before any rent arrives"><div class="grid" style="bottom:0.00%"><span>0%</span></div><div class="grid" style="bottom:25.00%"><span>25%</span></div><div class="grid" style="bottom:50.00%"><span>50%</span></div><div class="grid" style="bottom:75.00%"><span>75%</span></div><div class="grid" style="bottom:100.00%"><span>100%</span></div><div class="bar n" style="--v:35;--max:100" tabindex="0" data-tip="Signing (10%), site clearance and reclamation (10%), piling (15%): 35%" aria-label="Signing (10%), site clearance and reclamation (10%), piling (15%): 35%"><span class="val">35%</span></div><div class="bar n" style="--v:45;--max:100" tabindex="0" data-tip="June 2026 forecast: ground floor slab, total 45%" aria-label="June 2026 forecast: ground floor slab, total 45%"></div><div class="bar n" style="--v:55;--max:100" tabindex="0" data-tip="November 2026 forecast: first floor, total 55%" aria-label="November 2026 forecast: first floor, total 55%"></div><div class="bar n" style="--v:65;--max:100" tabindex="0" data-tip="May 2027 forecast: RC framework, total 65%" aria-label="May 2027 forecast: RC framework, total 65%"></div><div class="bar n" style="--v:75;--max:100" tabindex="0" data-tip="November 2027 forecast: metal roofing, total 75%" aria-label="November 2027 forecast: metal roofing, total 75%"></div><div class="bar n" style="--v:85;--max:100" tabindex="0" data-tip="May 2028 forecast: wall structure, total 85%" aria-label="May 2028 forecast: wall structure, total 85%"></div><div class="bar n" style="--v:95;--max:100" tabindex="0" data-tip="November 2028 forecast: electrical and plumbing, total 95%" aria-label="November 2028 forecast: electrical and plumbing, total 95%"></div><div class="bar n" style="--v:100;--max:100" tabindex="0" data-tip="June 2029 forecast: handover, total 100%" aria-label="June 2029 forecast: handover, total 100%"><span class="val">100%</span></div></div>
+      <div class="xlabels"><span>Early</span><span>Jun 26</span><span>Nov 26</span><span>May 27</span><span>Nov 27</span><span>May 28</span><span>Nov 28</span><span>Jun 29</span></div>
+      <details><summary>Show the numbers as a table</summary><table><thead><tr><th>Stage</th><th>Paid so far</th></tr></thead><tbody><tr><td>Signing (10%), site clearance and reclamation (10%), piling (15%)</td><td>35%</td></tr><tr><td>June 2026 forecast</td><td>ground floor slab, total 45%</td></tr><tr><td>November 2026 forecast</td><td>first floor, total 55%</td></tr><tr><td>May 2027 forecast</td><td>RC framework, total 65%</td></tr><tr><td>November 2027 forecast</td><td>metal roofing, total 75%</td></tr><tr><td>May 2028 forecast</td><td>wall structure, total 85%</td></tr><tr><td>November 2028 forecast</td><td>electrical and plumbing, total 95%</td></tr><tr><td>June 2029 forecast</td><td>handover, total 100%</td></tr></tbody></table></details>
+      <p class="chart-note">Forecast dates from the developer's 10-stage schedule; ask which stages are already due when you sign. If you use a bank loan, interest runs on each instalment the bank releases before rent starts. The developer offers 6.5% a year net, paid in advance during construction, as an alternative to the 8%.</p>
+    </figure>
+    <ol class="timeline"><li class=""><span class="when">At signing</span><strong>Pay 10%, then by stages</strong><span class="what">Payments follow construction milestones to June 2029.</span></li><li class=""><span class="when">June 2029 (forecast)</span><strong>Handover</strong><span class="what">Final 5% on vacant possession.</span></li><li class="g"><span class="when">Years 1&ndash;3</span><strong>8% guaranteed rent</strong><span class="what">Paid quarterly in arrears. Or take 6.5% net in advance during construction.</span></li><li class="p"><span class="when">Years 4&ndash;15</span><strong>Profit-sharing</strong><span class="what">75% of the resort's net operating profit shared by owners, paid monthly. Not guaranteed.</span></li></ol>
+  </div>
+</section>
+
+<section class="block" id="who">
+  <div class="container fade-up">
+    <h2 class="rule">Who Lexis Hibiscus 2 Suits</h2>
+    <p>Lexis Hibiscus 2 is a resort investment, not a holiday home. It suits buyers who want managed tourism income and can hold for the long term.</p>
+    <div class="fit-grid"><div class="fit"><h3>Buyers looking for resort income over 10 to 15 years</h3><p>The rental programme runs 15 years, and the developer's own model needs about 10 years or more for rent to repay the price. It rewards patience, not a quick resale.</p></div><div class="fit"><h3>Overseas and MM2H buyers</h3><p>A fully managed resort asset an hour from Kuala Lumpur, with no tenants to find and no bookings to run. Foreign buyers must meet Negeri Sembilan's foreign-ownership threshold.</p></div><div class="fit"><h3>Buyers who want a proven operator</h3><p>Lexis Hotel Group already runs the sister resort next door, which earned RM115.6 million in revenue in 2024.</p></div><div class="fit"><h3>Owners who like an occasional stay</h3><p>Owners get 10 free nights a year at the resort. The villa itself is let to guests the rest of the time.</p></div></div>
+    <div class="not-fit"><h3>Probably not for you if&hellip;</h3><ul><li>you want a holiday home or a place to live: the villa is let as a resort room;</li><li>you want a short-term flip;</li><li>you need rental income before mid-2029;</li><li>you are not comfortable with income after year 3 depending on tourism;</li><li>your budget is below RM774,000.</li></ul></div>
+  </div>
+</section>
+
+
 <section class="block bg-navy">
   <div class="container center fade-up">
     <h2 class="rule">The Sister Resort Is Already Running</h2>
@@ -249,5 +293,6 @@
 </a>
 
 <script src="script.js?v=2"></script>
+<script src="charts.js?v=1" defer></script>
 </body>
 </html>
