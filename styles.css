@@ -20,7 +20,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);font-size:17px;line-height:1.65;color:var(--ink);background:var(--white)}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:var(--ink)}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
