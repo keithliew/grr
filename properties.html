@@ -23,6 +23,19 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://grrmalaysia.com/"}, {"@type": "ListItem", "position": 2, "name": "Properties", "item": "https://grrmalaysia.com/properties"}]}
 </script>
+<style>
+.prop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-bottom:28px}
+.prop-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.prop-img img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.prop-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.prop-body h2{font-size:24px;margin:0}
+.prop-body h2 a{color:inherit;text-decoration:none}
+.prop-kind{font-size:14px;opacity:.7;margin:4px 0 14px}
+.prop-body dl{margin:0 0 20px;display:grid;gap:10px;flex:1}
+.prop-body dt{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;opacity:.65}
+.prop-body dd{margin:2px 0 0;font-size:15.5px}
+.prop-body .btn{align-self:flex-start}
+</style>
 </head>
 <body>
 
@@ -53,45 +66,53 @@
   </div>
 </section>
 
-<section class="block">
-  <div class="container fade-up">
-    <div class="table-wrap">
-      <table class="compare">
-        <thead><tr><th>Property</th><th>Location</th><th>Guaranteed rental return</th><th>Price</th><th>Completion</th></tr></thead>
-        <tbody>
-          <tr><td><a href="/opportunities"><strong>Lexis Hibiscus 2</strong></a><br>Private-pool water villas</td><td>Port Dickson, Negeri Sembilan</td><td>8% p.a. for years 1&ndash;3, then profit-sharing (projected, not guaranteed)</td><td>From RM774,000</td><td>June 2029 (forecast)</td></tr>
-          <tr><td><a href="/royal-lexis"><strong>Royal Lexis</strong></a><br>Hotel pool suites</td><td>Jalan Sultan Ismail, Kuala Lumpur</td><td>6% p.a. for years 1&ndash;3, then profit-sharing (projected, not guaranteed)</td><td>RM1,897,000 to RM4,418,000</td><td>September 2030 (forecast)</td></tr>
-          <tr><td><a href="/residensi-platinum"><strong>Residensi Platinum</strong></a><br>Furnished studios</td><td>Jalan Ipoh, Kuala Lumpur</td><td>6% p.a. (developer-confirmed; written terms at appointment)</td><td>RM470,000</td><td>December 2028 (expected)</td></tr>
-        </tbody>
-      </table>
+<section class="block bg-paper">
+  <div class="container">
+    <div class="prop-grid">
+      <article class="prop-card fade-up">
+        <a href="/opportunities" class="prop-img"><img src="images/villas-front.webp" alt="Lexis Hibiscus 2 overwater villas, artist's impression" loading="lazy"></a>
+        <div class="prop-body">
+          <h2><a href="/opportunities">Lexis Hibiscus 2</a></h2>
+          <p class="prop-kind">Private-pool water villas &middot; Artist's impression</p>
+          <dl>
+            <dt>Location</dt><dd>Port Dickson, Negeri Sembilan</dd>
+            <dt>Guaranteed rental return</dt><dd class="hl">8% p.a. for years 1&ndash;3, then profit-sharing (projected, not guaranteed)</dd>
+            <dt>Price</dt><dd>From RM774,000</dd>
+            <dt>Completion</dt><dd>June 2029 (forecast)</dd>
+          </dl>
+          <a class="btn btn-primary" href="/opportunities">Lexis Hibiscus 2 details</a>
+        </div>
+      </article>
+      <article class="prop-card fade-up">
+        <a href="/royal-lexis" class="prop-img"><img src="images/rl-day.webp" alt="Royal Lexis tower in Kuala Lumpur, artist's impression" loading="lazy"></a>
+        <div class="prop-body">
+          <h2><a href="/royal-lexis">Royal Lexis</a></h2>
+          <p class="prop-kind">Hotel pool suites &middot; Artist's impression</p>
+          <dl>
+            <dt>Location</dt><dd>Jalan Sultan Ismail, Kuala Lumpur</dd>
+            <dt>Guaranteed rental return</dt><dd class="hl">6% p.a. for years 1&ndash;3, then profit-sharing (projected, not guaranteed)</dd>
+            <dt>Price</dt><dd>RM1,897,000 to RM4,418,000</dd>
+            <dt>Completion</dt><dd>September 2030 (forecast)</dd>
+          </dl>
+          <a class="btn btn-primary" href="/royal-lexis">Royal Lexis details</a>
+        </div>
+      </article>
+      <article class="prop-card fade-up">
+        <a href="/residensi-platinum" class="prop-img"><img src="images/rp-ext.webp" alt="Residensi Platinum building on Jalan Ipoh, artist's impression" loading="lazy"></a>
+        <div class="prop-body">
+          <h2><a href="/residensi-platinum">Residensi Platinum</a></h2>
+          <p class="prop-kind">Furnished studios &middot; Artist's impression</p>
+          <dl>
+            <dt>Location</dt><dd>Jalan Ipoh, Kuala Lumpur</dd>
+            <dt>Guaranteed rental return</dt><dd class="hl">6% p.a. (developer-confirmed; written terms at appointment)</dd>
+            <dt>Price</dt><dd>RM470,000</dd>
+            <dt>Completion</dt><dd>December 2028 (expected)</dd>
+          </dl>
+          <a class="btn btn-primary" href="/residensi-platinum">Residensi Platinum details</a>
+        </div>
+      </article>
     </div>
     <p class="disclaimer">Figures come from each developer's own material, named on each property page. A guarantee depends on the developer's ability to pay. GRR Malaysia earns a commission on completed sales and does not give financial advice.</p>
-  </div>
-</section>
-
-<section class="block bg-paper">
-  <div class="container grid-3">
-    <div class="fade-up">
-      <figure>
-        <a href="/opportunities"><img src="images/villas-front.webp" alt="Lexis Hibiscus 2 overwater villas, artist's impression" class="rounded" loading="lazy"></a>
-        <figcaption>Lexis Hibiscus 2, Port Dickson. Artist's impression.</figcaption>
-      </figure>
-      <p><a class="btn btn-primary" href="/opportunities">Lexis Hibiscus 2 details</a></p>
-    </div>
-    <div class="fade-up">
-      <figure>
-        <a href="/royal-lexis"><img src="images/rl-day.webp" alt="Royal Lexis tower in Kuala Lumpur, artist's impression" class="rounded" loading="lazy"></a>
-        <figcaption>Royal Lexis, Kuala Lumpur. Artist's impression.</figcaption>
-      </figure>
-      <p><a class="btn btn-primary" href="/royal-lexis">Royal Lexis details</a></p>
-    </div>
-    <div class="fade-up">
-      <figure>
-        <a href="/residensi-platinum"><img src="images/rp-ext.webp" alt="Residensi Platinum building on Jalan Ipoh, artist's impression" class="rounded" loading="lazy"></a>
-        <figcaption>Residensi Platinum, Kuala Lumpur. Artist's impression.</figcaption>
-      </figure>
-      <p><a class="btn btn-primary" href="/residensi-platinum">Residensi Platinum details</a></p>
-    </div>
   </div>
 </section>
 
