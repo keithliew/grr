@@ -184,3 +184,6 @@
   .compare.facts td:first-child{padding-top:12px;font-size:13.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:0}
   .compare.facts td:last-child{padding-bottom:12px}
 }
+.privacy{margin-top:8px}
+.privacy summary{cursor:pointer;color:var(--ink60);text-decoration:underline}
+.privacy p{margin:8px 0 0;font-size:13px;line-height:1.55}

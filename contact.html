@@ -78,6 +78,8 @@
       <form class="form-card" id="briefing-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="b3c8d2b7-e445-4355-acc5-186e6f77cc3e">
         <input type="hidden" name="subject" id="f-subject" value="New briefing request — grrmalaysia.com">
+        <input type="hidden" name="redirect" value="https://grrmalaysia.com/thank-you">
+        <input type="hidden" name="from_page" id="f-from" value="">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row"><label for="f-property">Which property? *</label>
           <select id="f-property" name="property" required>
@@ -92,15 +94,25 @@
           <div class="form-row"><label for="f-phone">Phone / WhatsApp *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
         </div>
         <div class="form-grid">
-          <div class="form-row"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="form-row"><label for="f-email">Email (optional)</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
           <div class="form-row"><label for="f-country">Where do you live? *</label>
             <select id="f-country" name="country" required>
               <option value="">Choose one…</option><option>Malaysia</option><option>Singapore</option><option>Hong Kong</option><option>China</option><option>Taiwan</option><option>Indonesia</option><option>United Kingdom</option><option>Australia</option><option>Other</option>
             </select></div>
         </div>
         <div class="form-grid">
+          <div class="form-row"><label for="f-when">When are you planning to buy? *</label>
+            <select id="f-when" name="timeframe" required><option value="">Choose one…</option><option>Within 3 months</option><option>In 3 to 12 months</option><option>Just researching for now</option></select></div>
+          <div class="form-row"><label for="f-pay">How would you pay?</label>
+            <select id="f-pay" name="payment"><option value="">Not sure yet</option><option>Bank loan</option><option>Cash</option><option>Part cash, part loan</option></select></div>
+        </div>
+        <div class="form-grid">
+          <div class="form-row"><label for="f-reply">Best way to reply</label>
+            <select id="f-reply" name="reply_by"><option>WhatsApp</option><option>Phone call</option><option>Email</option></select></div>
           <div class="form-row"><label for="f-format">How would you like to meet?</label>
             <select id="f-format" name="format"><option>In person</option><option>Video call</option><option>WhatsApp chat first</option></select></div>
+        </div>
+        <div class="form-grid">
           <div class="form-row"><label for="f-budget">Budget (optional)</label>
             <select id="f-budget" name="budget"><option value="">Prefer not to say</option><option>Under RM500,000</option><option>RM500,000 to RM1 million</option><option>RM1 million to RM2 million</option><option>Over RM2 million</option></select></div>
         </div>
@@ -111,7 +123,11 @@
         </div>
         <div class="form-row"><label for="f-notes">Anything you'd like us to cover? (optional)</label><textarea id="f-notes" name="notes" rows="3"></textarea></div>
         <button class="btn btn-primary" type="submit" style="width:100%">Request My Briefing</button>
-        <p class="small" style="margin-top:14px;margin-bottom:0">We reply within 1 working day. We use your details only to arrange your briefing.</p>
+        <p class="small" style="margin-top:14px;margin-bottom:6px">We reply within 1 working day to confirm a time. Your request is not a booking until we confirm it.</p>
+        <details class="privacy small"><summary>How we use your details (Privacy notice / Notis privasi)</summary>
+          <p><strong>English.</strong> GRR Malaysia collects your name, phone, email and answers on this form to arrange your briefing and reply to you. The form is sent through Web3Forms, an email form service. We share your details only with the developer and the licensed agency for the property you choose, so they can arrange the briefing. We don't sell your details. Giving your phone number is needed so we can reply; everything else is optional. To see, correct or delete your details, or to stop hearing from us, WhatsApp us on +60 12-297 0362.</p>
+          <p><strong>Bahasa Malaysia.</strong> GRR Malaysia mengumpul nama, telefon, e-mel dan jawapan anda dalam borang ini untuk mengatur taklimat dan membalas anda. Borang ini dihantar melalui Web3Forms, perkhidmatan borang e-mel. Kami hanya berkongsi maklumat anda dengan pemaju dan agensi berlesen bagi hartanah yang anda pilih, supaya mereka boleh mengatur taklimat. Kami tidak menjual maklumat anda. Nombor telefon diperlukan supaya kami boleh membalas; maklumat lain adalah pilihan. Untuk melihat, membetulkan atau memadam maklumat anda, atau berhenti menerima mesej daripada kami, WhatsApp kami di +60 12-297 0362.</p>
+        </details>
       </form>
     </div>
   </div>
@@ -138,6 +154,7 @@
     subj.value = "New briefing request — " + t;
   }
   sel.addEventListener("change", sync); sync();
+  document.getElementById("f-from").value = document.referrer || "direct";
 })();
 </script>
 
