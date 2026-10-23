@@ -29,6 +29,13 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
+  // Staging copies (*.pages.dev) tell every crawler to stay out
+  if (url.hostname.endsWith(".pages.dev") && url.pathname === "/robots.txt") {
+    return new Response("User-agent: *\nDisallow: /\n", {
+      headers: { "content-type": "text/plain; charset=utf-8", "X-Robots-Tag": "noindex" },
+    });
+  }
+
   let response = await context.next();
   const contentType = response.headers.get("content-type") || "";
 
