@@ -360,3 +360,27 @@ p.disclose{font-size:14.5px;color:var(--ink60);font-style:italic}
 @media (prefers-reduced-motion:reduce){ .flow-m li.arrow i{display:none} }
 .chart svg.stool text.leg-t{font-size:17px}
 @media (max-width:720px){ .chart svg.stool text.leg-t{font-size:25px} .chart svg.stool text.seat-t{font-size:26px} }
+/* guide: review round 1 */
+.guide-page p.definition{margin:22px 0 0;font-size:18px;line-height:1.6;max-width:none;padding:16px 20px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow)}
+.callout{margin:18px 0 0;padding:14px 18px;background:#FFF4E5;border-radius:var(--radius);border-left:4px solid #C98A00;font-size:16px;max-width:none}
+.decades{list-style:none;margin:22px 0 4px;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.decades::before{content:"";position:absolute;left:10%;right:10%;top:31px;height:2px;background:var(--ink60)}
+.decades li{position:relative;text-align:center;padding:0 6px;font-size:13.5px;line-height:1.4;max-width:none}
+.decades b{display:block;font-family:var(--font-display);font-size:19px;margin-bottom:22px}
+.decades li::after{content:"";position:absolute;left:calc(50% - 7px);top:25px;width:14px;height:14px;border-radius:50%;background:#B3261E;border:2px solid var(--ivory)}
+.case.good{border-top-color:#1E7A46}
+.ask-cta{margin-top:18px;display:flex;gap:16px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--white);border-radius:var(--radius);padding:16px 20px}
+.ask-cta p{margin:0;font-size:15.5px;max-width:none;color:rgba(255,255,255,.9)}.ask-cta strong{color:var(--white)}
+.ask-cta .btn{flex:0 0 auto}
+.anim-toggle{margin-top:8px;font:inherit;font-size:13px;background:none;border:1px solid rgba(20,42,59,.25);border-radius:999px;padding:4px 12px;color:var(--ink60);cursor:pointer}
+.anim-paused .sbar.p,.anim-paused .flow-m li.arrow i{animation-play-state:paused}
+.calc-in{grid-template-columns:2fr 1fr 1fr 1fr}
+.calc-reb{font-size:15px;color:#FFB4A6;margin:0 0 8px;max-width:none}.calc-reb strong{color:var(--white)}
+@media (max-width:720px){
+  .decades{grid-template-columns:1fr;gap:14px;padding-left:22px}
+  .decades::before{left:6px;right:auto;top:6px;bottom:6px;width:2px;height:auto}
+  .decades li{text-align:left;padding:0}.decades b{margin-bottom:0;font-size:17px;display:inline;margin-right:8px}
+  .decades li::after{left:-22px;top:4px}
+  .ask-cta{flex-direction:column;align-items:flex-start}
+  .calc-in{grid-template-columns:1fr 1fr}
+}
