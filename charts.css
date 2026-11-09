@@ -392,3 +392,4 @@ p.disclose{font-size:14.5px;color:var(--ink60);font-style:italic}
 .case-about b,.case-status b{font-weight:600}
 .case-status{font-size:14.5px;margin:4px 0 10px;padding:10px 12px;background:var(--ivory);border-radius:6px;max-width:none}
 .case.good .case-status,.case.mixed .case-status,.case.bad .case-status{background:#F4F1EA}
+.case-link{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--coral-dark);white-space:nowrap}
