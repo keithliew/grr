@@ -233,3 +233,15 @@
   .band-small{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){ .gallery.mosaic img{transition:none} }
+/* GRR explainer: legal points, "to confirm" badges, sources */
+.tbc{display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:#FFE58A;color:#3D2E00;border:1px solid #D9B300;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.tbc-banner{background:#FFF4C2;border-bottom:2px solid #D9B300;color:#3D2E00;font-size:15px;padding:10px 0;text-align:center}
+.legal{list-style:none;margin:20px 0;padding:0;display:grid;gap:12px}
+.legal li{background:var(--white);border-left:3px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 18px;max-width:none}
+ol.sources{margin:16px 0 0 22px;font-size:15px;color:var(--ink60)}
+ol.sources li{margin-bottom:8px;max-width:none;scroll-margin-top:90px}
+ol.sources a{color:var(--ink60);word-break:break-word}
+sup.cite{font-size:12px;line-height:0;margin-left:1px}
+sup.cite a{text-decoration:none;color:var(--coral-dark);font-weight:600}
+.explainer-link{margin-top:22px;font-size:16px;color:var(--ink60);max-width:none}
+.explainer-link a{color:var(--ink);font-weight:600}
