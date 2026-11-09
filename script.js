@@ -116,7 +116,8 @@
 // Automatically load the shared footer into the container
 document.addEventListener("DOMContentLoaded", () => {
   const footerContainer = document.getElementById('site-footer-container');
-  if (footerContainer) {
+  // The server already puts the footer in the page; fetch it only if it is missing
+  if (footerContainer && !footerContainer.querySelector('footer')) {
     fetch('footer.html')
       .then(response => response.text())
       .then(data => {

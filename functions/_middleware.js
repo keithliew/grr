@@ -47,10 +47,24 @@ export async function onRequest(context) {
 
   // Only run this on actual HTML pages
   if (contentType.includes("text/html")) {
-    return new HTMLRewriter()
+    // Put the shared footer into the HTML itself, so search engines and AI crawlers
+    // that don't run JavaScript still see it (script.js keeps a fallback)
+    let footerHtml = "";
+    if (!url.pathname.startsWith("/footer")) {
+      try {
+        const f = await context.env.ASSETS.fetch(new URL("/footer", url));
+        if (f.ok) footerHtml = await f.text();
+      } catch (e) { footerHtml = ""; }
+    }
+    let rw = new HTMLRewriter()
       .on("head", new GTMHeadInjector())
-      .on("body", new GTMBodyInjector())
-      .transform(response);
+      .on("body", new GTMBodyInjector());
+    if (footerHtml) {
+      rw = rw.on("#site-footer-container", {
+        element(el) { el.setInnerContent(footerHtml, { html: true }); },
+      });
+    }
+    return rw.transform(response);
   }
 
   return response;

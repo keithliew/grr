@@ -384,3 +384,6 @@ p.disclose{font-size:14.5px;color:var(--ink60);font-style:italic}
   .ask-cta{flex-direction:column;align-items:flex-start}
   .calc-in{grid-template-columns:1fr 1fr}
 }
+.illus{margin:22px 0}
+.illus img{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);display:block}
+.illus figcaption{font-size:13.5px;color:var(--ink60);margin-top:8px;font-style:italic}
