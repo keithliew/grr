@@ -20,6 +20,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=3">
 <link rel="stylesheet" href="charts.css?v=11">
+<style>
+.prop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-bottom:28px}
+.prop-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.prop-img img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.prop-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.prop-body h3{font-size:24px;margin:0}
+.prop-body h3 a{color:inherit;text-decoration:none}
+.prop-kind{font-size:14px;opacity:.7;margin:4px 0 14px}
+.prop-body dl{margin:0 0 20px;display:grid;gap:10px;flex:1}
+.prop-body dt{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;opacity:.65}
+.prop-body dd{margin:2px 0 0;font-size:15.5px}
+.prop-body .btn{align-self:flex-start}
+</style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "Article", "headline": "What Is a Guaranteed Rental Return (GRR)?", "url": "https://grrmalaysia.com/guaranteed-rental-return", "description": "Plain-English guide to guaranteed rental return (GRR) schemes in Malaysia: how they work, who pays, the law, real cases and questions to ask.", "image": "https://grrmalaysia.com/images/rl-night.webp", "dateModified": "2026-11-09", "author": {"@type": "Organization", "name": "GRR Malaysia", "url": "https://grrmalaysia.com/"}, "datePublished": "2026-11-09", "mainEntityOfPage": "https://grrmalaysia.com/guaranteed-rental-return", "publisher": {"@type": "Organization", "@id": "https://grrmalaysia.com/#org", "name": "GRR Malaysia", "url": "https://grrmalaysia.com/", "logo": "https://grrmalaysia.com/grr_logo_mark_512.png"}, "citation": ["http://www.malaysianbar.org.my/general_opinions/comments/guaranteed_returns.html", "https://www.propertyguru.com.my/property-guides/what-is-guaranteed-rental-return-grr-scheme-17022", "https://www.iproperty.com.my/guides/be-cautious-over-guaranteed-rental-return-schemes-property-investors-told-4975", "https://theedgemalaysia.com/article/lawyer-defaults-grr-schemes-not-unusual", "https://www.malaymail.com/news/malaysia/2018/05/21/court-dismisses-developers-appeal-ordered-to-pay-condo-owners-rm3.97m-in-da/1633230", "https://harapandaily.com/2025/09/10/mho-desak-tindakan-tegas-terhadap-skim-pelaburan-pulangan-sewa-terjamin-grr-tidak-sah/", "https://www.ssm.com.my/bm/Pages/Legal_Framework/Interest-Scheme-Act.aspx", "https://theedgemalaysia.com/article/city-country-flip-side-guaranteed-rental-returns", "https://edgeprop.my/content/1909180/78-property-owners-obtain-summary-judgment-against-hatten-square-developer-over-unpaid-rents-non-existent-refurbishments", "https://theedgemalaysia.com/article/cover-story-look-fine-print-reputation-developers", "https://www.hba.org.my/articles/buyer_watch/biz_mag/2005/swayed.htm", "https://www.tourism.gov.my/news/trade/view/world-class-achievements-by-lexis-hibiscus-port-dickson", "https://www.guinnessworldrecords.com/world-records/430889-most-swimming-pools-in-a-resort", "https://www.ttgasia.com/2015/04/14/soft-opening-at-the-lexis-hibiscus-port-dickson/", "https://www.edgeprop.sg/property-news/somerset-puteri-harbour-investors-frustrated-returns", "https://www.pressreader.com/malaysia/the-sun-malaysia/20170619/281835758693477", "https://edgeprop.my/content/1271977/five-things-you-need-know-about-tribunal-homebuyer-claims", "https://www.malaymail.com/news/malaysia/2018/01/17/cyberjaya-condo-unit-owners-sue-developer-over-alleged-rental-defaults/1556141", "https://edgeprop.my/content/1434537/meda-inc%E2%80%99s-new-shareholder-settle-outstanding-rental-payments-arc-cyberjaya-owners", "https://onetiger.com/mho-gesa-ssm-pdrm-siasat-skim-pelaburan-grr/", "https://www.kosmo.com.my/2026/06/03/mho-mohon-agc-teliti-aduan-skim-grr-didakwa-tidak-sah/", "https://www.starproperty.my/johor/johor-bahru/iskandar-puteri/puteri-harbour/somerset/property-insights/5500", "https://www.thesundaily.my/archive/be-cautious-over-guaranteed-rental-return-schemes-property-investors-told-CTARCH454533", "https://investegate.co.uk/announcement/rns/aseana-properties-ltd---aspl/half-year-results/7316171"], "inLanguage": "en-MY", "about": {"@type": "Thing", "name": "Guaranteed rental return"}}
 </script>
@@ -60,7 +73,7 @@
   </div>
 </section>
 
-<nav class="page-nav" aria-label="On this page"><div class="container"><a href="#short">In one minute</a><a href="#how">How it works</a><a href="#who-pays">Who pays</a><a href="#law">The law</a><a href="#cases">Real cases</a><a href="#lexis">Lexis group</a><a href="#ask">Questions</a><a href="#cannot-pay">If rent stops</a><a href="#faq">FAQ</a></div></nav>
+<nav class="page-nav" aria-label="On this page"><div class="container"><a href="#short">In one minute</a><a href="#how">How it works</a><a href="#who-pays">Who pays</a><a href="#law">The law</a><a href="#cases">Real cases</a><a href="#lexis">Lexis group</a><a href="#ask">Questions</a><a href="#properties">The properties</a><a href="#cannot-pay">If rent stops</a><a href="#faq">FAQ</a></div></nav>
 
 <div class="container narrow">
   <aside class="disclaimer-box" role="note">
@@ -313,14 +326,66 @@ var t=document.querySelector(".anim-toggle");if(t)t.addEventListener("click",fun
     <p class="lead-in">Each one comes from something that went wrong for someone else. Take them to the showroom.</p>
     <figure class="illus"><img src="images/guide-showroom.webp" width="1024" height="572" loading="lazy" alt="Illustration: a Malaysian woman with a clipboard asking questions beside a hotel tower model while a salesperson reaches for a folder of documents; glossy brochures lie ignored on a side table"><figcaption>Illustration. The brochures can wait. Ask for the folder.</figcaption></figure>
     <ol class="ask-cards"><li><span class="qn">1</span><div><h3>Which company pays me, by name?</h3><p>Then look it up. The name on the hoarding and the name on the contract can be different.</p><span class="lesson">Learned the hard way at The Arc and Hatten Square</span></div></li><li><span class="qn">2</span><div><h3>Can I read the rental agreement before I pay a booking fee?</h3><p>If the guarantee isn't in a document you can read, it isn't a guarantee yet.</p><span class="lesson">The 2025 complaint</span></div></li><li><span class="qn">3</span><div><h3>When can the payer stop, and with how much notice?</h3><p>Look for words like "terminate", "suspend" and "force majeure" (events nobody controls).</p><span class="lesson">Nilai: two months' notice after six years</span></div></li><li><span class="qn">4</span><div><h3>Who will actually stay here, and why?</h3><p>A guarantee is easier to keep when real guests turn up. Ask who the hotel sells to.</p><span class="lesson">Nilai: the students got hostel places</span></div></li><li><span class="qn">5</span><div><h3>Is the rate on the full price or the discounted price, before or after costs?</h3><p>6% of what, exactly? It matters more than it sounds.</p><span class="lesson">Plain arithmetic</span></div></li><li><span class="qn">6</span><div><h3>What did owners in the developer's other hotels receive after the guarantee ended?</h3><p>Ask for a sample owner statement with the names hidden.</p><span class="lesson">Somerset Puteri Harbour: 5%, then about 0.5%</span></div></li><li><span class="qn">7</span><div><h3>Can I leave the programme, use the unit, or sell it?</h3><p>Ask what it costs to leave, and whether the developer must agree first.</p><span class="lesson">Every case on this page</span></div></li></ol>
-    <div class="ask-cta">
-      <p><strong>Want these seven answered for Royal Lexis or Lexis Hibiscus 2?</strong> Send us a WhatsApp. We'll answer from the developer's documents and tell you which document each answer comes from.</p>
-      <a class="btn btn-primary" href="https://wa.me/60122970362?text=Hi%20GRR%20Malaysia%2C%20I%20have%20a%20question%20about%20guaranteed%20rental%20returns" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
-    </div>
   </div>
 </section>
 
-<section class="block bg-paper" id="cannot-pay">
+<section class="block bg-paper" id="properties">
+  <div class="container fade-up">
+    <h2 class="rule">Put the Seven Questions to These Three</h2>
+    <p class="lead-in">The GRR properties on this site today. Each page shows what is guaranteed, what is only estimated, where every figure comes from, and the risks, so you can check the answers for yourself.</p>
+    <div class="prop-grid">
+      <article class="prop-card fade-up">
+        <a href="/opportunities" class="prop-img"><img width="1000" height="563" src="images/villas-front.webp" alt="Lexis Hibiscus 2 overwater villas, artist's impression" loading="lazy"></a>
+        <div class="prop-body">
+          <h3><a href="/opportunities">Lexis Hibiscus 2</a></h3>
+          <p class="prop-kind">Private-pool water villas &middot; Artist's impression</p>
+          <dl>
+            <dt>Location</dt><dd>Port Dickson, Negeri Sembilan</dd>
+            <dt>Guaranteed rental return</dt><dd class="hl">8% p.a. for years 1&ndash;3, then profit-sharing (projected, not guaranteed)</dd>
+            <dt>Price</dt><dd>From RM860,000</dd>
+            <dt>Completion</dt><dd>June 2029 (forecast)</dd>
+          </dl>
+          <a class="btn btn-primary" href="/opportunities">Lexis Hibiscus 2 details</a>
+        </div>
+      </article>
+      <article class="prop-card fade-up">
+        <a href="/royal-lexis" class="prop-img"><img width="1000" height="563" src="images/rl-day.webp" alt="Royal Lexis tower in Kuala Lumpur, artist's impression" loading="lazy"></a>
+        <div class="prop-body">
+          <h3><a href="/royal-lexis">Royal Lexis</a></h3>
+          <p class="prop-kind">Hotel pool suites &middot; Artist's impression</p>
+          <dl>
+            <dt>Location</dt><dd>Jalan Sultan Ismail, Kuala Lumpur</dd>
+            <dt>Guaranteed rental return</dt><dd class="hl">6% p.a. for years 1&ndash;3, then profit-sharing (projected, not guaranteed)</dd>
+            <dt>Price</dt><dd>RM1,897,000 to RM4,418,000</dd>
+            <dt>Completion</dt><dd>September 2030 (forecast)</dd>
+          </dl>
+          <a class="btn btn-primary" href="/royal-lexis">Royal Lexis details</a>
+        </div>
+      </article>
+      <article class="prop-card fade-up">
+        <a href="/residensi-platinum" class="prop-img"><img width="895" height="555" src="images/rp-ext.webp" alt="Residensi Platinum building on Jalan Ipoh, artist's impression" loading="lazy"></a>
+        <div class="prop-body">
+          <h3><a href="/residensi-platinum">Residensi Platinum</a></h3>
+          <p class="prop-kind">Furnished studios &middot; Artist's impression</p>
+          <dl>
+            <dt>Location</dt><dd>Jalan Ipoh, Kuala Lumpur</dd>
+            <dt>Guaranteed rental return</dt><dd class="hl">6% p.a. (developer-confirmed; written terms at appointment)</dd>
+            <dt>Price</dt><dd>RM470,000</dd>
+            <dt>Completion</dt><dd>December 2028 (expected)</dd>
+          </dl>
+          <a class="btn btn-primary" href="/residensi-platinum">Residensi Platinum details</a>
+        </div>
+      </article>
+    </div>
+    <div class="ask-cta">
+      <p><strong>Want the seven questions answered for one of these?</strong> Send us a WhatsApp. We'll answer from the developer's documents and tell you which document each answer comes from.</p>
+      <a class="btn btn-primary" href="https://wa.me/60122970362?text=Hi%20GRR%20Malaysia%2C%20I%20have%20a%20question%20about%20guaranteed%20rental%20returns" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+    </div>
+    <p class="disclose">We market these three properties and earn a commission when a sale completes, at no extra cost to you. This guide is reference only, not advice.</p>
+  </div>
+</section>
+
+<section class="block" id="cannot-pay">
   <div class="container narrow fade-up">
     <h2 class="rule">If the Rent Stops</h2>
     <p class="lead-in">What owners in the cases above did, in order. Speak to a lawyer about your own situation.</p>
@@ -334,7 +399,7 @@ var t=document.querySelector(".anim-toggle");if(t)t.addEventListener("click",fun
   </div>
 </section>
 
-<section class="block" id="labels">
+<section class="block bg-paper" id="labels">
   <div class="container narrow fade-up">
     <h2 class="rule">How This Site Shows Figures</h2>
     <div class="label-demo">
@@ -348,14 +413,14 @@ var t=document.querySelector(".anim-toggle");if(t)t.addEventListener("click",fun
   </div>
 </section>
 
-<section class="block bg-paper" id="faq">
+<section class="block" id="faq">
   <div class="container narrow fade-up">
     <h2 class="rule">Questions People Ask</h2>
     <div class="faq"><details><summary>What does GRR stand for?</summary><p>Guaranteed rental return. The developer, or a company linked to it, promises to pay you a fixed rent for a set number of years after you buy, whatever the property actually earns.</p></details><details><summary>Is a guaranteed rental return really guaranteed?</summary><p>Only as far as the signed agreement says, and only while the company paying it can pay. It is a company's promise, not insurance and not a bank guarantee.</p></details><details><summary>What happens when the guaranteed years end?</summary><p>Usually your rent becomes a share of the hotel's profit, which can be higher or lower, or you leave the programme and use, rent out or sell the unit yourself.</p></details><details><summary>How long does a GRR usually last in Malaysia?</summary><p>It varies. The examples on this page run from two years (Somerset Puteri Harbour) to three years (Royal Lexis and Lexis Hibiscus 2), and one promised 15 years but ended after six. Check the exact start date and end date in your agreement.</p></details><details><summary>Is GRR legal in Malaysia?</summary><p>Yes. It is an ordinary contract between you and the paying company. The rental agreement is not covered by the Housing Development Act, and whether some schemes count as interest schemes under the Interest Schemes Act 2016 is an open question.</p></details><details><summary>What is the difference between GRR and leaseback?</summary><p>The words are used loosely. In a leaseback you lease your unit back to the developer or its operator, and the guaranteed rent is often part of that lease. What counts is what your agreement says, whatever it is called.</p></details><details><summary>Has any GRR in Malaysia worked?</summary><p>Some have, though public records are thin because schemes that pay on time rarely make the news. A property consultant told The Sun in 2017 that Century Mahkota in Melaka paid its seven-year guarantee in full and kept paying year by year. Somerset Puteri Harbour in Johor paid its two guaranteed years on time, but returns fell sharply afterwards.</p></details><details><summary>Has any GRR in Malaysia gone wrong?</summary><p>Yes. Owners at The Arc @ Cyberjaya and Hatten Square in Melaka went to court over unpaid rent and won judgments, a family in Nilai saw a 15-year guarantee end after six years, and owners at Somerset Puteri Harbour were paid in full for two years and then saw returns fall to about 0.5%. Details and sources are on this page.</p></details><details><summary>Who do I complain to if the rent is not paid?</summary><p>Start with the company named in your rental agreement, in writing. Owners who were still not paid have gone to the civil courts, often as a group. A lawyer can tell you what your own agreement allows.</p></details><details><summary>Is this page financial or legal advice?</summary><p>No. It is general reference material. Speak to a lawyer or a licensed financial adviser before you make any investment decision.</p></details></div>
   </div>
 </section>
 
-<section class="block" id="sources">
+<section class="block bg-paper" id="sources">
   <div class="container narrow fade-up">
     <h2 class="rule">Sources</h2>
     <ol class="sources"><li id="src-1"><a href="http://www.malaysianbar.org.my/general_opinions/comments/guaranteed_returns.html" target="_blank" rel="noopener">Bhag Singh, &quot;Guaranteed returns&quot;, The Star, 15 September 2009, reproduced by the Malaysian Bar</a></li><li id="src-2"><a href="https://www.propertyguru.com.my/property-guides/what-is-guaranteed-rental-return-grr-scheme-17022" target="_blank" rel="noopener">PropertyGuru, &quot;What are guaranteed rental return (GRR) schemes?&quot;</a></li><li id="src-3"><a href="https://www.iproperty.com.my/guides/be-cautious-over-guaranteed-rental-return-schemes-property-investors-told-4975" target="_blank" rel="noopener">iProperty, &quot;Be cautious over guaranteed rental return schemes, property investors told&quot;, quoting the National House Buyers Association (HBA), 2018</a></li><li id="src-4"><a href="https://theedgemalaysia.com/article/lawyer-defaults-grr-schemes-not-unusual" target="_blank" rel="noopener">The Edge Malaysia, &quot;Lawyer: Defaults on GRR schemes not unusual&quot;, quoting lawyer Lai Chee Hoe</a></li><li id="src-5"><a href="https://www.malaymail.com/news/malaysia/2018/05/21/court-dismisses-developers-appeal-ordered-to-pay-condo-owners-rm3.97m-in-da/1633230" target="_blank" rel="noopener">Malay Mail, &quot;Court dismisses developer&#x27;s appeal, ordered to pay condo owners RM3.97m in damages&quot;, 21 May 2018</a></li><li id="src-6"><a href="https://harapandaily.com/2025/09/10/mho-desak-tindakan-tegas-terhadap-skim-pelaburan-pulangan-sewa-terjamin-grr-tidak-sah/" target="_blank" rel="noopener">Harapan Daily, &quot;MHO desak tindakan tegas terhadap Skim Pelaburan Pulangan Sewa Terjamin (GRR) tidak sah&quot;, 10 September 2025</a></li><li id="src-7"><a href="https://www.ssm.com.my/bm/Pages/Legal_Framework/Interest-Scheme-Act.aspx" target="_blank" rel="noopener">Interest Schemes Act 2016 (Act 778), Companies Commission of Malaysia (SSM)</a></li><li id="src-8"><a href="/royal-lexis">Royal Lexis draft tenancy agreement (April 2026), as summarised on our Royal Lexis page</a></li><li id="src-9"><a href="https://theedgemalaysia.com/article/city-country-flip-side-guaranteed-rental-returns" target="_blank" rel="noopener">The Edge Malaysia, &quot;City &amp; Country: The flip side of guaranteed rental returns&quot;, City &amp; Country issue 765, July 2009</a></li><li id="src-10"><a href="https://edgeprop.my/content/1909180/78-property-owners-obtain-summary-judgment-against-hatten-square-developer-over-unpaid-rents-non-existent-refurbishments" target="_blank" rel="noopener">EdgeProp, &quot;78 property owners obtain summary judgment against Hatten Square developer over unpaid rents, non-existent refurbishments&quot;, 6 May 2024</a></li><li id="src-11"><a href="https://theedgemalaysia.com/article/cover-story-look-fine-print-reputation-developers" target="_blank" rel="noopener">The Edge Malaysia, &quot;Cover Story: Look at the fine print, reputation of developers&quot;, City &amp; Country, February 2018</a></li><li id="src-12"><a href="https://www.hba.org.my/articles/buyer_watch/biz_mag/2005/swayed.htm" target="_blank" rel="noopener">National House Buyers Association, &quot;Swayed by guaranteed returns?&quot;, Malaysian Business, July 2005</a></li><li id="src-13"><a href="https://www.tourism.gov.my/news/trade/view/world-class-achievements-by-lexis-hibiscus-port-dickson" target="_blank" rel="noopener">Tourism Malaysia, &quot;World-class achievements by Lexis Hibiscus Port Dickson&quot;, 14 March 2017</a></li><li id="src-14"><a href="https://www.guinnessworldrecords.com/world-records/430889-most-swimming-pools-in-a-resort" target="_blank" rel="noopener">Guinness World Records, &quot;Most swimming pools in a resort&quot; (verified 14 October 2016)</a></li><li id="src-16"><a href="https://www.ttgasia.com/2015/04/14/soft-opening-at-the-lexis-hibiscus-port-dickson/" target="_blank" rel="noopener">TTG Asia, &quot;Soft opening at the Lexis Hibiscus Port Dickson&quot;, 14 April 2015</a></li><li id="src-17"><a href="https://www.edgeprop.sg/property-news/somerset-puteri-harbour-investors-frustrated-returns" target="_blank" rel="noopener">EdgeProp Singapore, &quot;Somerset Puteri Harbour investors frustrated with returns&quot;, 17 November 2018</a></li><li id="src-18"><a href="https://www.pressreader.com/malaysia/the-sun-malaysia/20170619/281835758693477" target="_blank" rel="noopener">The Sun, &quot;Guaranteed rental returns? Be cautious&quot;, 19 June 2017, quoting the National House Buyers Association</a></li><li id="src-19"><a href="https://edgeprop.my/content/1271977/five-things-you-need-know-about-tribunal-homebuyer-claims" target="_blank" rel="noopener">EdgeProp, &quot;Five things you need to know about the Tribunal for Homebuyer Claims&quot;, 19 January 2018</a></li><li id="src-20"><a href="https://www.malaymail.com/news/malaysia/2018/01/17/cyberjaya-condo-unit-owners-sue-developer-over-alleged-rental-defaults/1556141" target="_blank" rel="noopener">Malay Mail, &quot;Cyberjaya condo unit owners sue developer over alleged rental defaults&quot;, 17 January 2018</a></li><li id="src-21"><a href="https://edgeprop.my/content/1434537/meda-inc%E2%80%99s-new-shareholder-settle-outstanding-rental-payments-arc-cyberjaya-owners" target="_blank" rel="noopener">EdgeProp, &quot;Meda Inc&#x27;s new shareholder to settle outstanding rental payments to The Arc @ Cyberjaya owners&quot;, 16 October 2018</a></li><li id="src-22"><a href="https://onetiger.com/mho-gesa-ssm-pdrm-siasat-skim-pelaburan-grr/" target="_blank" rel="noopener">One Tiger Arena, &quot;MHO gesa SSM, PDRM siasat skim pelaburan GRR&quot;, 18 August 2025</a></li><li id="src-23"><a href="https://www.kosmo.com.my/2026/06/03/mho-mohon-agc-teliti-aduan-skim-grr-didakwa-tidak-sah/" target="_blank" rel="noopener">Kosmo, &quot;MHO mohon AGC teliti aduan skim GRR didakwa tidak sah&quot;, 3 June 2026</a></li><li id="src-24"><a href="https://www.starproperty.my/johor/johor-bahru/iskandar-puteri/puteri-harbour/somerset/property-insights/5500" target="_blank" rel="noopener">StarProperty, Somerset Puteri Harbour project page (read November 2026)</a></li><li id="src-25"><a href="https://www.thesundaily.my/archive/be-cautious-over-guaranteed-rental-return-schemes-property-investors-told-CTARCH454533" target="_blank" rel="noopener">The Sun, &quot;Be cautious over guaranteed rental return schemes, property investors told&quot;, June 2017, quoting Foo Gee Jen, managing director of CBRE-WTW</a></li><li id="src-26"><a href="https://investegate.co.uk/announcement/rns/aseana-properties-ltd---aspl/half-year-results/7316171" target="_blank" rel="noopener">Aseana Properties Ltd, half-year results to 30 June 2022 (London Stock Exchange announcement), 15 September 2022</a></li><li id="src-15"><a href="/opportunities">Lexis Hibiscus 2 sales documents from the developer (Kuala Lumpur Metro Group), quoting Booking.com room rates; summarised on our Lexis Hibiscus 2 page</a></li></ol>
