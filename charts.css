@@ -387,3 +387,8 @@ p.disclose{font-size:14.5px;color:var(--ink60);font-style:italic}
 .illus{margin:22px 0}
 .illus img{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);display:block}
 .illus figcaption{font-size:13.5px;color:var(--ink60);margin-top:8px;font-style:italic}
+.cases{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.case-about{font-size:15px;margin:0 0 14px;max-width:none;color:var(--ink)}
+.case-about b,.case-status b{font-weight:600}
+.case-status{font-size:14.5px;margin:4px 0 10px;padding:10px 12px;background:var(--ivory);border-radius:6px;max-width:none}
+.case.good .case-status,.case.mixed .case-status,.case.bad .case-status{background:#F4F1EA}
