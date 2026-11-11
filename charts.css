@@ -400,3 +400,11 @@ p.disclose{font-size:14.5px;color:var(--ink60);font-style:italic}
 .where,.how-hotel{margin-top:28px;padding:20px 22px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow)}
 .where h3,.how-hotel h3{margin-top:0}
 .where ul,.how-hotel ul{padding-left:20px}
+.lang-switch{background:var(--ivory,#F7F3EB);border-bottom:1px solid rgba(20,42,59,.08);font-size:14px}
+.lang-switch .container{display:flex;gap:16px;justify-content:flex-end;padding-top:8px;padding-bottom:8px}
+.lang-switch a{color:var(--ink,#142A3B);text-decoration:none;opacity:.7}
+.lang-switch a[aria-current]{opacity:1;font-weight:600;border-bottom:2px solid var(--coral,#E2604B)}
+html[lang^="zh"] body{font-family:"IBM Plex Sans","PingFang SC","PingFang TC","Hiragino Sans GB","Microsoft YaHei","Microsoft JhengHei","Noto Sans CJK SC",sans-serif}
+html[lang^="zh"] h1,html[lang^="zh"] h2,html[lang^="zh"] h3{font-family:"Fraunces","Noto Serif SC","Songti SC","PMingLiU",serif;letter-spacing:0}
+html[lang="zh-TW"] body{font-family:"IBM Plex Sans","PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif}
+html[lang^="zh"] p,html[lang^="zh"] li{line-height:1.8}

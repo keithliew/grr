@@ -16,7 +16,9 @@ Key facts, as published on the site (checked November 2026):
 ## Properties
 
 - [All properties](https://grrmalaysia.com/properties): comparison of the three programmes
-- [Royal Lexis, Kuala Lumpur](https://grrmalaysia.com/royal-lexis): hotel suites; guaranteed and estimated rent, sources, risks
+- [Royal Lexis, Kuala Lumpur](https://grrmalaysia.com/royal-lexis): hotel suites; guaranteed and estimated rent, sources, risks, and a section for overseas buyers
+- [吉隆坡丽昇皇廷 Royal Lexis（简体中文）](https://grrmalaysia.com/zh/royal-lexis): Simplified Chinese version of the Royal Lexis page
+- [吉隆坡麗昇皇廷 Royal Lexis（繁體中文）](https://grrmalaysia.com/zh-tw/royal-lexis): Traditional Chinese (Taiwan) version of the Royal Lexis page
 - [Lexis Hibiscus 2, Port Dickson](https://grrmalaysia.com/opportunities): pool villas; guaranteed and estimated rent, sources, risks
 - [Residensi Platinum, Kuala Lumpur](https://grrmalaysia.com/residensi-platinum): furnished studios; what is confirmed and what is not
 
