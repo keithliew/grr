@@ -393,3 +393,10 @@ p.disclose{font-size:14.5px;color:var(--ink60);font-style:italic}
 .case-status{font-size:14.5px;margin:4px 0 10px;padding:10px 12px;background:var(--ivory);border-radius:6px;max-width:none}
 .case.good .case-status,.case.mixed .case-status,.case.bad .case-status{background:#F4F1EA}
 .case-link{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--coral-dark);white-space:nowrap}
+.abroad-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:8px 0 28px}
+.abroad-grid .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px}
+.abroad-grid .card h3{font-size:19px;margin:0 0 8px}
+.abroad-grid .card p{font-size:15.5px;margin:0}
+.where,.how-hotel{margin-top:28px;padding:20px 22px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow)}
+.where h3,.how-hotel h3{margin-top:0}
+.where ul,.how-hotel ul{padding-left:20px}
