@@ -53,7 +53,9 @@
     submitted = true;
     send("grr_form_submit", {});
     var r = form.querySelector('input[name="redirect"]');
-    if (r) r.value = r.value.split("?")[0] + "?property=" + encodeURIComponent(property());
+    if (r) r.value = location.origin + "/thank-you?property=" + encodeURIComponent(property());
+    // One-time note that a real send happened; the thank-you page counts a lead only if it finds it.
+    try { sessionStorage.setItem("grr_sent", String(Date.now())); } catch (e) {}
   });
 
   // 6. Left the page after starting but without sending

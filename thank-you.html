@@ -54,9 +54,23 @@
 </section>
 
 <script>
-// A completed briefing request: the step Google Analytics should count as a lead.
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({ event: "grr_lead", form_name: "briefing", property: new URLSearchParams(location.search).get("property") || "unknown" });
+// A completed briefing request: counted as a lead once, only after a real send from the form
+// (the form leaves a one-time note). A refresh, the back button or a direct visit counts nothing.
+(function () {
+  var sent = null, fresh = false;
+  try {
+    sent = sessionStorage.getItem("grr_sent");
+    fresh = !!sent && Date.now() - Number(sent) < 30 * 60 * 1000;
+    sessionStorage.removeItem("grr_sent");
+  } catch (e) {
+    fresh = /web3forms\.com/.test(document.referrer);
+  }
+  if (!fresh) return;
+  var property = new URLSearchParams(location.search).get("property") || "unknown";
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: "grr_lead", form_name: "briefing", property: property });
+  window.dataLayer.push({ event: "form_submit", form_name: "briefing", property: property });
+})();
 </script>
 
 <div id="site-footer-container"></div>
