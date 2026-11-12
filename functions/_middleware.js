@@ -1,22 +1,16 @@
-// GTM Tracking ID config
-const GTM_ID = 'GTM-MQBXGWD3'; // Replace with your actual GTM Container ID
+// Google Analytics 4 (the Google tag), added to every page. Replaces Tag Manager (GTM-MQBXGWD3), Nov 2026.
+// Only grrmalaysia.com reports to GA4. Staging (*.pages.dev) sends nothing, unless a tester opens a page
+// with ?gadebug=1, which sends to GA4 DebugView only and can never switch on for grrmalaysia.com.
+const GA_ID = "G-KCVFNS9WY9";
 
-class GTMHeadInjector {
+class GAHeadInjector {
+  constructor(debug) { this.debug = debug; }
   element(element) {
-    element.prepend(`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');</script>
-\n`, { html: true });
-  }
-}
-
-class GTMBodyInjector {
-  element(element) {
-    element.prepend(`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-\n`, { html: true });
+    const cfg = this.debug ? ", { debug_mode: true }" : "";
+    element.prepend(`<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}'${cfg});</script>
+<script src="/tracking.js?v=1" defer></script>
+`, { html: true });
   }
 }
 
@@ -56,15 +50,23 @@ export async function onRequest(context) {
         if (f.ok) footerHtml = await f.text();
       } catch (e) { footerHtml = ""; }
     }
-    let rw = new HTMLRewriter()
-      .on("head", new GTMHeadInjector())
-      .on("body", new GTMBodyInjector());
+    const live = url.hostname === "grrmalaysia.com";
+    const cookie = context.request.headers.get("cookie") || "";
+    const debug = url.hostname.endsWith(".pages.dev") &&
+      (url.searchParams.get("gadebug") === "1" || /(?:^|;\s*)gadebug=1/.test(cookie));
+    let rw = new HTMLRewriter();
+    if (live || debug) rw = rw.on("head", new GAHeadInjector(debug && !live));
     if (footerHtml) {
       rw = rw.on("#site-footer-container", {
         element(el) { el.setInnerContent(footerHtml, { html: true }); },
       });
     }
-    return rw.transform(response);
+    let out = rw.transform(response);
+    if (debug && url.searchParams.get("gadebug") === "1") {
+      out = new Response(out.body, out);
+      out.headers.append("Set-Cookie", "gadebug=1; Path=/; Max-Age=3600; Secure; SameSite=Lax");
+    }
+    return out;
   }
 
   return response;
