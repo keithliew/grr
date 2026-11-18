@@ -159,12 +159,12 @@
       var chips = make("div", "grc-chips");
       // 1. "See our properties" lists the three, each a button that asks about that one. 2. The GRR programme in general.
       chip(chips, T.chips[0], function () { listShown = true; render(); });
-      chip(chips, T.chips[1], function () { ask(T.generic); });
+      chip(chips, T.chips[1], function () { ask(T.generic, "generic"); });
       el.log.appendChild(chips);
       if (listShown) {
         el.log.appendChild(make("div", "grc-msg grc-bot", T.listIntro));
         var props = make("div", "grc-chips");
-        PROPERTIES.forEach(function (name) { chip(props, name, function () { ask(T.about + name); }); });
+        PROPERTIES.forEach(function (name) { chip(props, name, function () { ask(T.about + name, name.toLowerCase().replace(/ /g, "-")); }); });
         el.log.appendChild(props);
       }
     }
@@ -193,7 +193,7 @@
 
   function userTurns() { return state.messages.filter(function (m) { return m.role === "user"; }).length; }
 
-  function ask(text) {
+  function ask(text, topic) {
     text = (text || "").trim();
     if (!text || busy) return;
     if (userTurns() >= MAX_USER) { state.messages.push({ role: "user", content: text }, { role: "assistant", content: T.limit }); state.formShown = !state.lead; state.formOpen = !state.lead; focusForm = true; save(); render(); el.input.value = ""; return; }
@@ -202,7 +202,7 @@
     el.input.value = ""; save(); render();
     busy = true; el.send.disabled = true;
     var typing = make("div", "grc-typing", T.typing); el.log.appendChild(typing); scroll();
-    fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ lang: lang, page: location.pathname, messages: state.messages }) })
+    fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ lang: lang, page: location.pathname, topic: topic }) })
       .then(function (r) { return r.json(); })
       .catch(function () { return { reply: T.sendFail, offer_contact: true }; })
       .then(function (d) {
