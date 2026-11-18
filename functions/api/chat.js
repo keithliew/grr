@@ -59,7 +59,7 @@ export async function onRequestPost({ request, env }) {
   const page = typeof body.page === "string" ? body.page.slice(0, 80).replace(/[^\w\/\-.]/g, "") : "/";
   const messages = cleanConversation(body.messages);
   if (!messages) return json({ reply: busyReply(lang), property: "none", offer_contact: true, limited: true });
-  if (!env.ANTHROPIC_API_KEY) return json({ reply: busyReply(lang), property: "none", offer_contact: true, unavailable: true });
+  if (!env.ANTHROPIC_API_KEY) return json({ reply: busyReply(lang), property: "none", offer_contact: true, unavailable: true, reason: "no_key" });
 
   let res;
   try {
@@ -85,11 +85,13 @@ export async function onRequestPost({ request, env }) {
     });
   } catch (e) {
     console.log("chat: network error", String(e));
-    return json({ reply: busyReply(lang), property: "none", offer_contact: true, unavailable: true });
+    return json({ reason: "network", reply: busyReply(lang), property: "none", offer_contact: true, unavailable: true });
   }
   if (!res.ok) {
-    console.log("chat: api status", res.status, (await res.text()).slice(0, 300));
-    return json({ reply: busyReply(lang), property: "none", offer_contact: true, unavailable: true });
+    const detail = (await res.text()).slice(0, 300);
+    console.log("chat: api status", res.status, detail);
+    const type = (detail.match(/"type"\s*:\s*"(\w+_error)"/) || [])[1] || "";
+    return json({ reason: "api_" + res.status + (type ? "_" + type : ""), reply: busyReply(lang), property: "none", offer_contact: true, unavailable: true });
   }
 
   const data = await res.json();
