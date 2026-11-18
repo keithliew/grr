@@ -221,3 +221,11 @@ table.compare tbody tr:last-child td{border-bottom:0}
   .stat-row,.cred-strip,.gallery{grid-template-columns:1fr}
   body{font-size:16px}
 }
+/* Chinese and Malay pages (/zh/, /zh-tw/, /ms/) */
+html[lang="zh-Hans"]{--font-display:"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;--font-body:"IBM Plex Sans","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif}
+html[lang="zh-TW"]{--font-display:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;--font-body:"IBM Plex Sans","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+html[lang^="zh"] h1,html[lang^="zh"] h2,html[lang^="zh"] h3{letter-spacing:0}
+.lang-switch{background:var(--ivory);border-bottom:1px solid rgba(20,42,59,.08);font-size:14px}
+.lang-switch .container{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:flex-end;padding-top:8px;padding-bottom:8px}
+.lang-switch a{color:var(--ink);text-decoration:none;opacity:.7}
+.lang-switch a[aria-current]{opacity:1;font-weight:600;border-bottom:2px solid var(--coral)}

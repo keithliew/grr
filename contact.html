@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 <link rel="stylesheet" href="charts.css?v=4">
 
 <script type="application/ld+json">
@@ -68,7 +68,7 @@
 
       <h3 style="margin-top:32px">Where we meet</h3>
       <div class="meet-list">
-        <div class="meet"><strong><a href="/opportunities">Lexis Hibiscus 2</a></strong><span>Showroom at Pavilion Tower, Kuala Lumpur, or on site at Lexis Hibiscus Port Dickson.</span></div>
+        <div class="meet"><strong><a href="/opportunities">Lexis Hibiscus 2</a></strong><span>Showroom at Imperial Lexis Kuala Lumpur, Level 7 (by appointment), or on site at Lexis Hibiscus Port Dickson.</span></div>
         <div class="meet"><strong><a href="/royal-lexis">Royal Lexis</a></strong><span>We confirm the meeting place when we reply.</span></div>
         <div class="meet"><strong><a href="/residensi-platinum">Residensi Platinum</a></strong><span>At the developer's showroom, where the full rental terms are shared. We confirm the address when we reply.</span></div>
         <div class="meet"><strong>Living overseas?</strong><span>We can do the briefing by video call and email the documents first.</span></div>
@@ -159,7 +159,8 @@
   var p = new URLSearchParams(location.search).get("property");
   if (p && sel.querySelector('option[value="' + p + '"]')) sel.value = p;
   function sync() {
-    var t = sel.value ? sel.options[sel.selectedIndex].text.split(" (")[0] : "grrmalaysia.com";
+    var o = sel.options[sel.selectedIndex];
+    var t = sel.value ? (o.getAttribute("data-en") || o.text).split(" (")[0] : "grrmalaysia.com";
     subj.value = "New briefing request — " + t;
   }
   sel.addEventListener("change", sync); sync();
@@ -167,7 +168,7 @@
 })();
 </script>
 
-<script src="form-tracking.js?v=2"></script>
+<script src="form-tracking.js?v=3"></script>
 
 <div id="site-footer-container"></div>
 

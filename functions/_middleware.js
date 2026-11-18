@@ -34,7 +34,8 @@ export async function onRequest(context) {
   const contentType = response.headers.get("content-type") || "";
 
   // Keep the pages.dev copy and the footer fragment out of Google
-  if (url.hostname.endsWith(".pages.dev") || url.pathname.startsWith("/footer")) {
+  const isFooter = /^\/(?:(?:zh|zh-tw|ms)\/)?footer(?:\.html)?$/.test(url.pathname);
+  if (url.hostname.endsWith(".pages.dev") || isFooter) {
     response = new Response(response.body, response);
     response.headers.set("X-Robots-Tag", "noindex");
   }
@@ -44,9 +45,11 @@ export async function onRequest(context) {
     // Put the shared footer into the HTML itself, so search engines and AI crawlers
     // that don't run JavaScript still see it (script.js keeps a fallback)
     let footerHtml = "";
-    if (!url.pathname.startsWith("/footer")) {
+    if (!isFooter) {
+      // Chinese and Malay pages get the footer in their own language
+      const dir = (url.pathname.match(/^\/(zh|zh-tw|ms)\//) || [])[1];
       try {
-        const f = await context.env.ASSETS.fetch(new URL("/footer", url));
+        const f = await context.env.ASSETS.fetch(new URL(dir ? `/${dir}/footer` : "/footer", url));
         if (f.ok) footerHtml = await f.text();
       } catch (e) { footerHtml = ""; }
     }
