@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://grrmalaysia.com/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh-tw/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/ms/</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://grrmalaysia.com/properties</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh/properties</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh-tw/properties</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/ms/properties</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://grrmalaysia.com/royal-lexis</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://grrmalaysia.com/ms/royal-lexis</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://grrmalaysia.com/zh/royal-lexis</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://grrmalaysia.com/zh-tw/royal-lexis</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://grrmalaysia.com/residensi-platinum</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh/residensi-platinum</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh-tw/residensi-platinum</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/ms/residensi-platinum</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://grrmalaysia.com/opportunities</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh/opportunities</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh-tw/opportunities</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/ms/opportunities</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://grrmalaysia.com/guaranteed-rental-return</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://grrmalaysia.com/about</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://grrmalaysia.com/contact</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh/contact</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/zh-tw/contact</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://grrmalaysia.com/ms/contact</loc><lastmod>2026-11-18</lastmod></url>
 </urlset>

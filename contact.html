@@ -6,6 +6,11 @@
 <title>Book a Free Property Briefing | GRR Malaysia</title>
 <meta name="description" content="Book a free, no-obligation briefing on Lexis Hibiscus 2, Royal Lexis or Residensi Platinum. In person, by video call or on WhatsApp: +60 12-297 0362.">
 <link rel="canonical" href="https://grrmalaysia.com/contact">
+<link rel="alternate" hreflang="en" href="https://grrmalaysia.com/contact">
+<link rel="alternate" hreflang="zh-Hans" href="https://grrmalaysia.com/zh/contact">
+<link rel="alternate" hreflang="zh-TW" href="https://grrmalaysia.com/zh-tw/contact">
+<link rel="alternate" hreflang="ms" href="https://grrmalaysia.com/ms/contact">
+<link rel="alternate" hreflang="x-default" href="https://grrmalaysia.com/contact">
 <meta property="og:title" content="Book a Free Property Briefing | GRR Malaysia">
 <meta property="og:description" content="Book a free, no-obligation briefing on Lexis Hibiscus 2, Royal Lexis or Residensi Platinum. In person, by video call or on WhatsApp: +60 12-297 0362.">
 <meta property="og:url" content="https://grrmalaysia.com/contact">
@@ -24,6 +29,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ContactPage","name":"Book a free property briefing","url":"https://grrmalaysia.com/contact","inLanguage":"en-MY","isPartOf":{"@type":"WebSite","@id":"https://grrmalaysia.com/#website","url":"https://grrmalaysia.com/","name":"GRR Malaysia"},"about":{"@type":"Organization","@id":"https://grrmalaysia.com/#org","name":"GRR Malaysia","url":"https://grrmalaysia.com/"}}
 </script>
+<script src="/lang-suggest.js" defer></script>
 </head>
 <body>
 
@@ -43,6 +49,7 @@
     </nav>
   </div>
 </header>
+<div class="lang-switch" data-i18n-skip><div class="container"><a href="/contact" hreflang="en" lang="en" aria-current="true">English</a> <a href="/zh/contact" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> <a href="/zh-tw/contact" hreflang="zh-TW" lang="zh-TW">繁體中文</a> <a href="/ms/contact" hreflang="ms" lang="ms">Bahasa Malaysia</a></div></div>
 
 <section class="hero hero-compact">
   <div class="hero-bg" style="background-image:url('images/pool-bar-night.webp')"></div>
@@ -161,7 +168,8 @@
   function sync() {
     var o = sel.options[sel.selectedIndex];
     var t = sel.value ? (o.getAttribute("data-en") || o.text).split(" (")[0] : "grrmalaysia.com";
-    subj.value = "New briefing request — " + t;
+    var lang = { "zh-Hans": " [简体中文]", "zh-TW": " [繁體中文]", "ms": " [Bahasa Malaysia]" }[document.documentElement.lang] || "";
+    subj.value = "New briefing request — " + t + lang;
   }
   sel.addEventListener("change", sync); sync();
   document.getElementById("f-from").value = document.referrer || "direct";
