@@ -33,7 +33,8 @@
       listIntro: "We list three properties. Which one would you like to know about?",
       about: "Tell me about ",
       placeholder: "Type your question…", send: "Send", close: "Close chat", open: "Ask us",
-      formTitle: "Get a reply on WhatsApp", name: "Your name", phone: "WhatsApp number", phoneHint: "+60 12 345 6789",
+      formTitle: "Book a free briefing", date: "Preferred date", time: "Preferred time", loc: "Where would you like to meet?", choose: "Choose…", slots: ["Morning (10am – 12pm)", "Afternoon (12pm – 3pm)"], locs: ["Kuala Lumpur", "Port Dickson (Lexis Hibiscus 2)", "Video call"], badDate: "Please choose a date.", badTime: "Please choose a time.", badLoc: "Please choose where to meet.", confirm: "We confirm the time and place on WhatsApp within 1 working day.",
+      name: "Your name", phone: "WhatsApp number", phoneHint: "+60 12 345 6789",
       consent: "By sending, you agree that GRR Malaysia may contact you on WhatsApp about these properties and share your details with the developer and licensed agency for the property you choose. This chat is sent with your details. See our", privacy: "privacy notice",
       submit: "Send my details", leave: "Leave my number", wa: "WhatsApp us instead",
       thanks: "Thank you! Our team will reply on WhatsApp within 1 working day (10am to 3pm daily). Want to start now?",
@@ -49,7 +50,8 @@
       listIntro: "我们共有三个房产。您想了解哪一个？",
       about: "请介绍一下",
       placeholder: "请输入您的问题…", send: "发送", close: "关闭聊天", open: "在线咨询",
-      formTitle: "通过WhatsApp回复我", name: "您的姓名", phone: "WhatsApp号码", phoneHint: "+60 12 345 6789",
+      formTitle: "预约免费说明会", date: "首选日期", time: "首选时间", loc: "希望在哪里见面？", choose: "请选择…", slots: ["上午（10点 – 12点）", "下午（12点 – 3点）"], locs: ["吉隆坡", "波德申（Lexis Hibiscus 2）", "视频通话"], badDate: "请选择日期。", badTime: "请选择时间。", badLoc: "请选择见面地点。", confirm: "我们会在1个工作日内通过WhatsApp确认时间和地点。",
+      name: "您的姓名", phone: "WhatsApp号码", phoneHint: "+60 12 345 6789",
       consent: "提交即表示您同意GRR Malaysia通过WhatsApp就这些房产与您联系，并将您的资料提供给您所选房产的发展商和持牌代理。本次聊天记录会随您的资料一并发送。详见", privacy: "隐私声明",
       submit: "提交我的资料", leave: "留下我的号码", wa: "改用WhatsApp联系",
       thanks: "谢谢！我们的团队会在1个工作日内通过WhatsApp回复您（每天上午10点至下午3点）。想现在就开始吗？",
@@ -65,7 +67,8 @@
       listIntro: "我們共有三個物業。您想了解哪一個？",
       about: "請介紹一下",
       placeholder: "請輸入您的問題…", send: "傳送", close: "關閉聊天", open: "線上諮詢",
-      formTitle: "透過WhatsApp回覆我", name: "您的姓名", phone: "WhatsApp號碼", phoneHint: "+60 12 345 6789",
+      formTitle: "預約免費說明會", date: "首選日期", time: "首選時間", loc: "希望在哪裡見面？", choose: "請選擇…", slots: ["上午（10點 – 12點）", "下午（12點 – 3點）"], locs: ["吉隆坡", "波德申（Lexis Hibiscus 2）", "視訊通話"], badDate: "請選擇日期。", badTime: "請選擇時間。", badLoc: "請選擇見面地點。", confirm: "我們會在1個工作天內透過WhatsApp確認時間和地點。",
+      name: "您的姓名", phone: "WhatsApp號碼", phoneHint: "+60 12 345 6789",
       consent: "送出即表示您同意GRR Malaysia透過WhatsApp就這些物業與您聯絡，並將您的資料提供給您所選物業的發展商和持牌代理。本次聊天記錄會隨您的資料一併送出。詳見", privacy: "隱私聲明",
       submit: "送出我的資料", leave: "留下我的號碼", wa: "改用WhatsApp聯絡",
       thanks: "謝謝！我們的團隊會在1個工作天內透過WhatsApp回覆您（每天上午10點至下午3點）。想現在就開始嗎？",
@@ -95,7 +98,7 @@
     ".grc-chip{background:#fff;border:1px solid #9FBFC9;color:#142A3B;border-radius:999px;padding:8px 12px;font-size:13.5px;cursor:pointer;min-height:36px}" +
     ".grc-form{background:#fff;border:1px solid #9FBFC9;border-radius:12px;padding:12px;margin:4px 0 10px;font-size:13.5px}" +
     ".grc-form b{display:block;margin-bottom:8px}.grc-form label{display:block;margin:6px 0 2px;font-weight:600;font-size:12.5px}" +
-    ".grc-form input{width:100%;box-sizing:border-box;border:1px solid #d6cfc0;border-radius:8px;padding:10px;font-size:16px}" +
+    ".grc-form input,.grc-form select{width:100%;box-sizing:border-box;border:1px solid #d6cfc0;border-radius:8px;padding:10px;font-size:16px}" +
     ".grc-form p{font-size:11.5px;color:#4b5563;margin:8px 0}.grc-form a{color:#142A3B;text-decoration:underline}" +
     ".grc-err{color:#b42318;font-size:12.5px;margin-top:4px;min-height:1px}" +
     ".grc-btn{display:block;width:100%;background:#E2604B;color:#fff;border:0;border-radius:999px;padding:11px;font-weight:700;font-size:14.5px;cursor:pointer;text-align:center;text-decoration:none;box-sizing:border-box}" +
@@ -215,16 +218,23 @@
     f.appendChild(make("b", null, T.formTitle));
     var ln = make("label", null, T.name); var n = make("input"); n.name = "name"; n.autocomplete = "name"; n.required = true; ln.htmlFor = n.id = "grc-name";
     var lp = make("label", null, T.phone); var p = make("input"); p.name = "whatsapp_number"; p.type = "tel"; p.inputMode = "tel"; p.autocomplete = "tel"; p.placeholder = T.phoneHint; lp.htmlFor = p.id = "grc-phone";
+    var ld = make("label", null, T.date); var d = make("input"); d.type = "date"; d.name = "preferred_date"; d.min = dayAfter(); ld.htmlFor = d.id = "grc-date";
+    var lt = make("label", null, T.time); var t = picker("preferred_time", T.slots); lt.htmlFor = t.id = "grc-time";
+    var ll = make("label", null, T.loc); var l = picker("location", T.locs); ll.htmlFor = l.id = "grc-loc";
     var err = make("div", "grc-err");
     var c = make("p", null, T.consent + " "); var a = make("a", null, T.privacy); a.href = PRIVACY; a.target = "_blank"; c.appendChild(a); c.appendChild(document.createTextNode("."));
     var b = make("button", "grc-btn", T.submit); b.type = "submit";
-    [ln, n, lp, p, err, c, b].forEach(function (x) { f.appendChild(x); });
+    var note = make("p", null, T.confirm);
+    [ln, n, lp, p, ld, d, lt, t, ll, l, err, note, c, b].forEach(function (x) { f.appendChild(x); });
     f.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!n.value.trim()) { err.textContent = T.badName; n.focus(); return; }
       if (p.value.replace(/\D/g, "").length < 7) { err.textContent = T.badPhone; p.focus(); return; }
+      if (!d.value) { err.textContent = T.badDate; d.focus(); return; }
+      if (!t.value) { err.textContent = T.badTime; t.focus(); return; }
+      if (!l.value) { err.textContent = T.badLoc; l.focus(); return; }
       err.textContent = ""; b.disabled = true;
-      sendLead(n.value.trim(), p.value.trim()).then(function (ok) {
+      sendLead(n.value.trim(), p.value.trim(), { preferred_date: d.value, preferred_time: t.value, location: l.value }).then(function (ok) {
         if (!ok) { b.disabled = false; err.textContent = T.sendFail; return; }
         state.lead = true; save();
         push("chat_lead", { chat_ref: cfg.ref, chat_lang: lang, chat_property: state.property });
@@ -240,12 +250,21 @@
     d.appendChild(a); return d;
   }
 
-  function sendLead(name, phone) {
+  function dayAfter() { return new Date(Date.now() + 864e5).toLocaleDateString("en-CA", { timeZone: "Asia/Kuala_Lumpur" }); }
+  // The inbox always gets the English wording, whatever language the visitor chose
+  var EN = { preferred_time: ["Morning (10am – 12pm)", "Afternoon (12pm – 3pm)"], location: ["Kuala Lumpur", "Port Dickson (Lexis Hibiscus 2)", "Video call"] };
+  function picker(name, options) {
+    var sel = make("select"); sel.name = name;
+    [T.choose].concat(options).forEach(function (o, i) { var op = make("option", null, o); op.value = i ? EN[name][i - 1] : ""; sel.appendChild(op); });
+    return sel;
+  }
+
+  function sendLead(name, phone, booking) {
     var utm = {};
     var transcript = state.messages.map(function (m) { return (m.role === "user" ? "Visitor: " : "Assistant: ") + m.content; }).join("\n\n");
     var body = {
-      access_key: FORM_KEY, subject: "Chat lead from grrmalaysia.com (Ref " + cfg.ref + "-CHAT)", from_name: "grrmalaysia.com chat",
-      name: name, whatsapp_number: phone, ref: cfg.ref + "-CHAT", language: lang, page: location.pathname,
+      access_key: FORM_KEY, subject: "Chat booking " + booking.preferred_date + " from grrmalaysia.com (Ref " + cfg.ref + "-CHAT)", from_name: "grrmalaysia.com chat",
+      name: name, whatsapp_number: phone, preferred_date: booking.preferred_date, preferred_time: booking.preferred_time, location: booking.location, ref: cfg.ref + "-CHAT", language: lang, page: location.pathname,
       property: state.property, lp_variant: "chat", transcript: transcript || "(no messages, details left straight away)",
       botcheck: "",
     };
