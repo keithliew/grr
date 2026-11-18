@@ -27,8 +27,11 @@
   var T = {
     en: {
       title: "GRR Malaysia", sub: "Automated assistant · our team follows up",
-      hello: "Hi! I'm GRR Malaysia's automated assistant. I can explain how a guaranteed rental return works and tell you about our three properties: Lexis Hibiscus 2, Royal Lexis and Residensi Platinum. Which one interests you?",
-      chips: ["How does a guaranteed rent work?", "Compare the three properties", "Is it safe?", "Book a free briefing"],
+      hello: "Hi! I'm GRR Malaysia's automated assistant. What would you like to know?",
+      chips: ["See our properties", "Tell me about GRR programmes"],
+      generic: "I want to know more about guaranteed rental return (GRR) programmes.",
+      listIntro: "We list three properties. Which one would you like to know about?",
+      about: "Tell me about ",
       placeholder: "Type your question…", send: "Send", close: "Close chat", open: "Ask us",
       formTitle: "Get a reply on WhatsApp", name: "Your name", phone: "WhatsApp number", phoneHint: "+60 12 345 6789",
       consent: "By sending, you agree that GRR Malaysia may contact you on WhatsApp about these properties and share your details with the developer and licensed agency for the property you choose. This chat is sent with your details. See our", privacy: "privacy notice",
@@ -40,8 +43,11 @@
     },
     zh: {
       title: "GRR Malaysia", sub: "自动助手 · 团队随后跟进",
-      hello: "您好！我是GRR Malaysia的自动助手。我可以为您解释保证租金回报如何运作，并介绍我们的三个房产：Lexis Hibiscus 2、Royal Lexis 和 Residensi Platinum。您对哪一个感兴趣？",
-      chips: ["保证租金如何运作？", "比较三个房产", "安全吗？", "预约免费说明会"],
+      hello: "您好！我是GRR Malaysia的自动助手。请问您想了解什么？",
+      chips: ["查看我们的房产", "了解GRR保证租金计划"],
+      generic: "我想进一步了解保证租金回报（GRR）计划。",
+      listIntro: "我们共有三个房产。您想了解哪一个？",
+      about: "请介绍一下",
       placeholder: "请输入您的问题…", send: "发送", close: "关闭聊天", open: "在线咨询",
       formTitle: "通过WhatsApp回复我", name: "您的姓名", phone: "WhatsApp号码", phoneHint: "+60 12 345 6789",
       consent: "提交即表示您同意GRR Malaysia通过WhatsApp就这些房产与您联系，并将您的资料提供给您所选房产的发展商和持牌代理。本次聊天记录会随您的资料一并发送。详见", privacy: "隐私声明",
@@ -53,8 +59,11 @@
     },
     "zh-tw": {
       title: "GRR Malaysia", sub: "自動助理 · 團隊隨後跟進",
-      hello: "您好！我是GRR Malaysia的自動助理。我可以為您解釋保證租金回報如何運作，並介紹我們的三個物業：Lexis Hibiscus 2、Royal Lexis 和 Residensi Platinum。您對哪一個有興趣？",
-      chips: ["保證租金如何運作？", "比較三個物業", "安全嗎？", "預約免費說明會"],
+      hello: "您好！我是GRR Malaysia的自動助理。請問您想了解什麼？",
+      chips: ["查看我們的物業", "了解GRR保證租金計劃"],
+      generic: "我想進一步了解保證租金回報（GRR）計劃。",
+      listIntro: "我們共有三個物業。您想了解哪一個？",
+      about: "請介紹一下",
       placeholder: "請輸入您的問題…", send: "傳送", close: "關閉聊天", open: "線上諮詢",
       formTitle: "透過WhatsApp回覆我", name: "您的姓名", phone: "WhatsApp號碼", phoneHint: "+60 12 345 6789",
       consent: "送出即表示您同意GRR Malaysia透過WhatsApp就這些物業與您聯絡，並將您的資料提供給您所選物業的發展商和持牌代理。本次聊天記錄會隨您的資料一併送出。詳見", privacy: "隱私聲明",
@@ -134,13 +143,25 @@
     render();
   }
 
+  var PROPERTIES = ["Lexis Hibiscus 2", "Royal Lexis", "Residensi Platinum"];
+  var listShown = false;
+  function chip(box, label, fn) { var b = make("button", "grc-chip", label); b.type = "button"; b.addEventListener("click", fn); box.appendChild(b); }
+
   function render() {
     el.log.textContent = "";
     el.log.appendChild(make("div", "grc-msg grc-bot", T.hello));
     if (!state.messages.length) {
       var chips = make("div", "grc-chips");
-      T.chips.forEach(function (c) { var b = make("button", "grc-chip", c); b.type = "button"; b.addEventListener("click", function () { ask(c); }); chips.appendChild(b); });
+      // 1. "See our properties" lists the three, each a button that asks about that one. 2. The GRR programme in general.
+      chip(chips, T.chips[0], function () { listShown = true; render(); });
+      chip(chips, T.chips[1], function () { ask(T.generic); });
       el.log.appendChild(chips);
+      if (listShown) {
+        el.log.appendChild(make("div", "grc-msg grc-bot", T.listIntro));
+        var props = make("div", "grc-chips");
+        PROPERTIES.forEach(function (name) { chip(props, name, function () { ask(T.about + name); }); });
+        el.log.appendChild(props);
+      }
     }
     state.messages.forEach(function (m) { el.log.appendChild(make("div", "grc-msg " + (m.role === "user" ? "grc-me" : "grc-bot"), m.content)); });
     if (state.lead) el.log.appendChild(thanksCard());
