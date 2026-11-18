@@ -87,7 +87,7 @@
     ".grc-head{display:flex;align-items:center;gap:10px;background:#142A3B;color:#fff;padding:12px 14px}" +
     ".grc-head b{display:block;font-size:15px}.grc-head small{display:block;font-size:11.5px;color:#9FBFC9}" +
     ".grc-x{margin-left:auto;background:none;border:0;color:#fff;font-size:26px;line-height:1;width:44px;height:44px;cursor:pointer}" +
-    ".grc-log{flex:1;overflow-y:auto;padding:14px;background:#F7F3EB;-webkit-overflow-scrolling:touch}" +
+    ".grc-log{position:relative;flex:1;overflow-y:auto;padding:14px;background:#F7F3EB;-webkit-overflow-scrolling:touch}" +
     ".grc-msg{max-width:85%;margin:0 0 10px;padding:9px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}" +
     ".grc-bot{background:#fff;border-bottom-left-radius:4px}.grc-me{background:#142A3B;color:#fff;margin-left:auto;border-bottom-right-radius:4px}" +
     ".grc-typing{color:#6b7280;font-style:italic;font-size:13px;margin:0 0 10px}" +
@@ -99,6 +99,7 @@
     ".grc-form p{font-size:11.5px;color:#4b5563;margin:8px 0}.grc-form a{color:#142A3B;text-decoration:underline}" +
     ".grc-err{color:#b42318;font-size:12.5px;margin-top:4px;min-height:1px}" +
     ".grc-btn{display:block;width:100%;background:#E2604B;color:#fff;border:0;border-radius:999px;padding:11px;font-weight:700;font-size:14.5px;cursor:pointer;text-align:center;text-decoration:none;box-sizing:border-box}" +
+    ".grc-cb{margin:4px 0 10px}" +
     ".grc-wa{background:#1fbf5c;color:#fff;margin-top:8px}" +
     ".grc-foot{border-top:1px solid #eee;padding:8px 10px;background:#fff}" +
     ".grc-row{display:flex;gap:8px}.grc-row textarea{flex:1;resize:none;border:1px solid #d6cfc0;border-radius:10px;padding:10px;font:inherit;font-size:16px;height:44px;max-height:110px}" +
@@ -163,10 +164,26 @@
         el.log.appendChild(props);
       }
     }
-    state.messages.forEach(function (m) { el.log.appendChild(make("div", "grc-msg " + (m.role === "user" ? "grc-me" : "grc-bot"), m.content)); });
-    if (state.lead) el.log.appendChild(thanksCard());
-    else if (state.formShown) el.log.appendChild(formCard());
-    scroll();
+    var lastBot = null;
+    state.messages.forEach(function (m) {
+      var n = make("div", "grc-msg " + (m.role === "user" ? "grc-me" : "grc-bot"), m.content);
+      el.log.appendChild(n);
+      if (m.role === "assistant") lastBot = n;
+    });
+    var card = null;
+    if (state.lead) card = el.log.appendChild(thanksCard());
+    else if (state.formOpen) card = el.log.appendChild(formCard());
+    else if (state.formShown) el.log.appendChild(callBackButton());
+    // Show the start of the newest answer (or the opened form), not the bottom of the chat
+    var target = focusForm && card ? card : lastBot;
+    focusForm = false;
+    if (target && state.messages.length) el.log.scrollTop = Math.max(0, target.offsetTop - 8); else scroll();
+  }
+  var focusForm = false;
+  function callBackButton() {
+    var b = make("button", "grc-btn grc-cb", T.formTitle); b.type = "button";
+    b.addEventListener("click", function () { showForm(); });
+    return b;
   }
   function scroll() { el.log.scrollTop = el.log.scrollHeight; }
 
@@ -175,7 +192,7 @@
   function ask(text) {
     text = (text || "").trim();
     if (!text || busy) return;
-    if (userTurns() >= MAX_USER) { state.messages.push({ role: "user", content: text }, { role: "assistant", content: T.limit }); state.formShown = !state.lead; save(); render(); el.input.value = ""; return; }
+    if (userTurns() >= MAX_USER) { state.messages.push({ role: "user", content: text }, { role: "assistant", content: T.limit }); state.formShown = !state.lead; state.formOpen = !state.lead; focusForm = true; save(); render(); el.input.value = ""; return; }
     if (!state.started) { state.started = true; push("chat_start", { chat_ref: cfg.ref, chat_lang: lang }); }
     state.messages.push({ role: "user", content: text.slice(0, 600) });
     el.input.value = ""; save(); render();
@@ -211,7 +228,7 @@
         if (!ok) { b.disabled = false; err.textContent = T.sendFail; return; }
         state.lead = true; save();
         push("chat_lead", { chat_ref: cfg.ref, chat_lang: lang, chat_property: state.property });
-        render();
+        focusForm = true; render();
       });
     });
     return f;
@@ -236,14 +253,14 @@
       .then(function (r) { return r.json(); }).then(function (d) { return !!(d && d.success); }).catch(function () { return false; });
   }
 
-  function showForm() { if (!state.lead) { state.formShown = true; save(); render(); } }
+  function showForm() { if (!state.lead) { state.formShown = true; state.formOpen = true; focusForm = true; save(); render(); var n = el.log.querySelector("input"); if (n && window.matchMedia("(min-width: 768px)").matches) n.focus(); } }
   function waClick() { /* tracking.js sends whatsapp_click for wa.me links */ }
 
   function open(source) {
     el.root.classList.add("is-open");
     push("chat_open", { chat_source: source || "float", chat_ref: cfg.ref, chat_lang: lang });
+    render(); // positions the view on the newest answer now that the panel is visible
     if (window.matchMedia("(min-width: 768px)").matches) el.input.focus();
-    scroll();
   }
   function close() { el.root.classList.remove("is-open"); }
 
