@@ -20,7 +20,7 @@ const QUESTION = {
   "zh-tw": { about: "請介紹一下", generic: "我想進一步了解保證租金回報（GRR）計劃。" },
 };
 const CACHE_S = 21600;
-const CACHE_VERSION = "v1"; // change when chat-facts.js changes, so old answers are not reused
+const CACHE_VERSION = "v2"; // change when chat-facts.js changes, so old answers are not reused
 
 const MODEL = "claude-opus-5-5";
 const LANGS = ["en", "zh", "zh-tw"];
