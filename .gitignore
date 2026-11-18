@@ -4,3 +4,6 @@ New GRR Projects/
 .DS_Store
 INDEX.md
 .claude/
+
+.dev.vars
+.wrangler/

@@ -56,6 +56,10 @@ export async function onRequest(context) {
       (url.searchParams.get("gadebug") === "1" || /(?:^|;\s*)gadebug=1/.test(cookie));
     let rw = new HTMLRewriter();
     if (live || debug) rw = rw.on("head", new GAHeadInjector(debug && !live));
+    // Chat assistant on every page except the /lp/ landing pages (chat.js, see functions/api/chat.js)
+    if (!url.pathname.startsWith("/footer") && !url.pathname.startsWith("/lp/")) {
+      rw = rw.on("body", { element(el) { el.append('<script src="/chat.js?v=1" defer></script>', { html: true }); } });
+    }
     if (footerHtml) {
       rw = rw.on("#site-footer-container", {
         element(el) { el.setInnerContent(footerHtml, { html: true }); },

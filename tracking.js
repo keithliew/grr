@@ -2,15 +2,17 @@
 // The Google tag (gtag) is added to every page by functions/_middleware.js on grrmalaysia.com only.
 //  - dataLayer events named grr_* and form_submit go to GA4 under the same name, with only the
 //    8 parameters the reports use (marketing-loop matches custom dimensions by these names).
-//  - A click on any WhatsApp link (wa.me) sends whatsapp_click, as before.
+//  - chat_* events from the chat assistant (chat.js) go to GA4 the same way.
+//  - A click on any WhatsApp link (wa.me) sends whatsapp_click, except the links the chat opens instead.
 (function () {
   if (typeof window.gtag !== "function") return;
-  var PARAMS = ["form_name", "property", "first_field", "field_name", "field_position", "fields_filled", "fields_total", "last_field"];
+  var PARAMS = ["form_name", "property", "first_field", "field_name", "field_position", "fields_filled", "fields_total", "last_field",
+    "chat_source", "chat_ref", "chat_lang", "chat_property"];
   var dl = (window.dataLayer = window.dataLayer || []);
 
   function forward(item) {
     if (!item || typeof item !== "object" || item._grrSent || typeof item.event !== "string") return;
-    if (!/^grr_/.test(item.event) && item.event !== "form_submit") return;
+    if (!/^(grr_|chat_)/.test(item.event) && item.event !== "form_submit") return;
     item._grrSent = true;
     var p = {};
     PARAMS.forEach(function (k) { if (item[k] !== undefined) p[k] = item[k]; });
@@ -27,6 +29,6 @@
 
   document.addEventListener("click", function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
-    if (a) window.gtag("event", "whatsapp_click");
+    if (a && !(window.GRRChat && window.GRRChat.takes(a))) window.gtag("event", "whatsapp_click");
   }, true);
 })();
