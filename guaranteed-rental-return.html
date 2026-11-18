@@ -142,7 +142,7 @@
     <li class="arrow g"><i></i>guaranteed rent</li>
     <li class="you"><b>You, the owner</b><span>get a fixed rent</span></li>
   </ol>
-  <button type="button" class="anim-toggle" aria-pressed="false">Pause animation</button>
+  <button type="button" class="anim-toggle" aria-pressed="false"><span>Pause animation</span><span hidden>Play animation</span></button>
   <p class="chart-note">Simplified. Your agreement names the real companies, and some agreements take running costs off before you are paid.</p>
 </figure>
     <figure class="chart">
@@ -176,7 +176,7 @@ function run(){var p=Math.max(0,+g("c-price").value||0),r=+g("c-rate").value/100
 g("c-year").textContent="RM"+f.format(p*r);g("c-month").textContent="RM"+f.format(p*r/12);g("c-total").textContent="RM"+f.format(p*r*y);
 var b=Math.min(30,Math.max(0,+g("c-reb").value||0));g("c-rebline").hidden=!b;g("c-rebv").textContent="RM"+f.format(p*(1-b/100)*r);}
 ["c-price","c-rate","c-years","c-reb"].forEach(function(i){g(i).addEventListener("input",run)});run();
-var t=document.querySelector(".anim-toggle");if(t)t.addEventListener("click",function(){var on=document.body.classList.toggle("anim-paused");t.setAttribute("aria-pressed",on);t.textContent=on?"Play animation":"Pause animation";var sv=document.querySelector("svg.flow");if(sv)on?sv.pauseAnimations():sv.unpauseAnimations();});})();
+var t=document.querySelector(".anim-toggle");if(t)t.addEventListener("click",function(){var on=document.body.classList.toggle("anim-paused");t.setAttribute("aria-pressed",on);var sp=t.querySelectorAll("span");sp[0].hidden=on;sp[1].hidden=!on;var sv=document.querySelector("svg.flow");if(sv)on?sv.pauseAnimations():sv.unpauseAnimations();});})();
 </script>
     <h3 style="margin-top:32px">The properties on this site, as examples</h3>
     <div class="table-wrap"><table class="compare">
