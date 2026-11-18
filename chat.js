@@ -32,7 +32,7 @@
       generic: "I want to know more about guaranteed rental return (GRR) programmes.",
       listIntro: "We list three properties. Which one would you like to know about?",
       about: "Tell me about ",
-      placeholder: "Type your question…", send: "Send", close: "Close chat", open: "Ask us",
+      placeholder: "Type your question…", send: "Send", close: "Close chat", open: "Book a Free Briefing",
       formTitle: "Book a free briefing", date: "Preferred date", time: "Preferred time", loc: "Where would you like to meet?", choose: "Choose…", slots: ["Morning (10am – 12pm)", "Afternoon (12pm – 3pm)"], locs: ["Kuala Lumpur", "Port Dickson (Lexis Hibiscus 2)", "Video call"], badDate: "Please choose a date.", badTime: "Please choose a time.", badLoc: "Please choose where to meet.", confirm: "We confirm the time and place on WhatsApp within 1 working day.",
       name: "Your name", phone: "WhatsApp number", phoneHint: "+60 12 345 6789",
       consent: "By sending, you agree that GRR Malaysia may contact you on WhatsApp about these properties and share your details with the developer and licensed agency for the property you choose. This chat is sent with your details. See our", privacy: "privacy notice",
@@ -49,7 +49,7 @@
       generic: "我想进一步了解保证租金回报（GRR）计划。",
       listIntro: "我们共有三个房产。您想了解哪一个？",
       about: "请介绍一下",
-      placeholder: "请输入您的问题…", send: "发送", close: "关闭聊天", open: "在线咨询",
+      placeholder: "请输入您的问题…", send: "发送", close: "关闭聊天", open: "预约免费说明会",
       formTitle: "预约免费说明会", date: "首选日期", time: "首选时间", loc: "希望在哪里见面？", choose: "请选择…", slots: ["上午（10点 – 12点）", "下午（12点 – 3点）"], locs: ["吉隆坡", "波德申（Lexis Hibiscus 2）", "视频通话"], badDate: "请选择日期。", badTime: "请选择时间。", badLoc: "请选择见面地点。", confirm: "我们会在1个工作日内通过WhatsApp确认时间和地点。",
       name: "您的姓名", phone: "WhatsApp号码", phoneHint: "+60 12 345 6789",
       consent: "提交即表示您同意GRR Malaysia通过WhatsApp就这些房产与您联系，并将您的资料提供给您所选房产的发展商和持牌代理。本次聊天记录会随您的资料一并发送。详见", privacy: "隐私声明",
@@ -66,7 +66,7 @@
       generic: "我想進一步了解保證租金回報（GRR）計劃。",
       listIntro: "我們共有三個物業。您想了解哪一個？",
       about: "請介紹一下",
-      placeholder: "請輸入您的問題…", send: "傳送", close: "關閉聊天", open: "線上諮詢",
+      placeholder: "請輸入您的問題…", send: "傳送", close: "關閉聊天", open: "預約免費說明會",
       formTitle: "預約免費說明會", date: "首選日期", time: "首選時間", loc: "希望在哪裡見面？", choose: "請選擇…", slots: ["上午（10點 – 12點）", "下午（12點 – 3點）"], locs: ["吉隆坡", "波德申（Lexis Hibiscus 2）", "視訊通話"], badDate: "請選擇日期。", badTime: "請選擇時間。", badLoc: "請選擇見面地點。", confirm: "我們會在1個工作天內透過WhatsApp確認時間和地點。",
       name: "您的姓名", phone: "WhatsApp號碼", phoneHint: "+60 12 345 6789",
       consent: "送出即表示您同意GRR Malaysia透過WhatsApp就這些物業與您聯絡，並將您的資料提供給您所選物業的發展商和持牌代理。本次聊天記錄會隨您的資料一併送出。詳見", privacy: "隱私聲明",
@@ -83,7 +83,7 @@
     ".grc-root{position:fixed;z-index:9999;right:16px;bottom:16px;font-family:'IBM Plex Sans',Arial,sans-serif;color:#142A3B}" +
     ".grc-bubble{display:flex;align-items:center;gap:8px;background:#142A3B;color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:600;font-size:14px;box-shadow:0 10px 24px rgba(0,0,0,.22);cursor:pointer}" +
     ".grc-bubble svg{flex:none}.grc-root.is-open .grc-bubble{display:none}" +
-    "@media (max-width:767px){.grc-bubble span{display:none}.grc-bubble{width:58px;height:58px;padding:0;justify-content:center}}" +
+    "@media (max-width:767px){.grc-bubble{padding:11px 16px;font-size:13.5px}}" +
     ".grc-panel{display:none;flex-direction:column;width:370px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 32px);background:#fff;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.28);overflow:hidden}" +
     ".grc-root.is-open .grc-panel{display:flex}" +
     "@media (max-width:767px){.grc-root.is-open{inset:0;right:0;bottom:0}.grc-root.is-open .grc-panel{width:100%;max-width:none;height:100%;max-height:none;border-radius:0}}" +
@@ -140,7 +140,8 @@
     var links = make("div", "grc-links"); var leave = make("button", null, T.leave); leave.type = "button"; leave.addEventListener("click", function () { showForm(true); });
     var wa = make("a", null, T.wa); wa.href = waLink(); wa.target = "_blank"; wa.rel = "noopener noreferrer"; wa.addEventListener("click", waClick);
     links.appendChild(leave); links.appendChild(wa);
-    foot.appendChild(row); foot.appendChild(links); foot.appendChild(make("div", "grc-note", T.note));
+    // No typing box on GRR (Keith, 18 Nov 2026): visitors pick from the buttons, then the booking form opens
+    foot.appendChild(links); foot.appendChild(make("div", "grc-note", T.note));
     panel.appendChild(head); panel.appendChild(log); panel.appendChild(foot);
     root.appendChild(bubble); root.appendChild(panel); document.body.appendChild(root);
     el = { root: root, log: log, input: input, send: send };
@@ -154,7 +155,7 @@
   function render() {
     el.log.textContent = "";
     el.log.appendChild(make("div", "grc-msg grc-bot", T.hello));
-    if (!state.messages.length) {
+    {
       var chips = make("div", "grc-chips");
       // 1. "See our properties" lists the three, each a button that asks about that one. 2. The GRR programme in general.
       chip(chips, T.chips[0], function () { listShown = true; render(); });
@@ -208,7 +209,7 @@
         busy = false; el.send.disabled = false;
         state.messages.push({ role: "assistant", content: d.reply || T.sendFail });
         if (d.property && d.property !== "none") state.property = d.property;
-        if (d.offer_contact && !state.lead) state.formShown = true;
+        if (!state.lead) { state.formShown = true; state.formOpen = true; }
         save(); render();
       });
   }
